@@ -1,0 +1,128 @@
+--- 
+site: bookdown::bookdown_site
+documentclass: book
+classoption: oneside
+fontsize: 12pt
+geometry: left=3cm,right=3cm,top=2.5cm,bottom=2.5cm
+lang: pl
+output: pdf_document
+---
+
+```{=latex}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand*{\tablename}{Tabela}
+\thispagestyle{empty}
+\fancyhead[RO]{\thepage}
+
+\begin{center}
+  \begin{large}
+    Uniwersytet im. Adama Mickiewicza w~Poznaniu\\
+    Wydział Matematyki i~Informatyki\\Zakład Statystyki Matematycznej i Analizy Danych\\
+    \vspace{2.7cm}
+    
+  \end{large}  
+    
+    \begin{LARGE}
+      \leftskip=-3cm plus 1fil\rightskip=-3cm plus 1fil
+\LARGE {\textbf{Problem dwóch prób zależnych\\dla danych funkcjonalnych}}
+
+\vspace{0.5cm}
+
+\LARGE {\textbf{Paired two-sample problem for functional data}}\par
+    \end{LARGE}% uwaga na spacje!!!
+    \vspace{2.0cm}
+    \begin{Large}
+      \textbf{Wojciech Przybyła}
+   \end{Large}  
+    
+    \begin{Large}
+    
+Kierunek: Matematyka\\
+Specjalność studiów: Statystyka i analiza danych\\
+Nr albumu: 456421
+    	
+    \end{Large}
+    
+    \vspace{3.0cm}
+    
+      \begin{Large}  
+ Praca licencjacka\\
+      napisana pod kierunkiem\\
+      prof. UAM dra hab. Łukasza Smagi\\
+    \vspace{2.8cm}
+    Poznań 2022
+  \end{Large}  
+\end{center}
+
+\newpage
+
+\thispagestyle{empty}
+\fancyhead[LO]{\textbf{\small{}}}
+\renewcommand{\headrulewidth}{0.0pt}
+
+\vspace{20pt}
+
+\begin{flushright}
+Poznań, dnia ??? r.
+\end{flushright}
+
+\vspace{40pt}
+
+\begin{center}
+\textbf{OŚWIADCZENIE}
+\end{center}
+```
+
+Zdając sobie sprawę z odpowiedzialności prawnej, że przypisanie sobie w pracy dyplomowej autorstwa istotnego fragmentu lub innych elementów cudzego utworu lub ustalenia naukowego stanowi podstawę stwierdzenia nieważności postępowania administracyjnego w sprawie nadania tytułu zawodowego oświadczam, że przedkładana praca dyplomowa została napisana przeze mnie samodzielnie i nie zawiera ona treści uzyskanych w sposób niezgodny z obowiązującymi przepisami, a przy jej pisaniu, poza niezbędnymi konsultacjami, nie korzystano z pomocy innych osób.
+
+```{=latex}
+\vspace{30pt}
+
+%\vspace{30pt}
+
+\begin{flushright}
+.................................................. 
+\end{flushright}
+```
+
+\newpage
+
+```{=latex}
+\thispagestyle{empty}
+\fancyhead[LO]{\textbf{\small{}}}
+\renewcommand{\headrulewidth}{0.0pt}
+
+\begin{center}
+\textbf{STRESZCZENIE}
+\end{center}
+
+\vspace{30pt}
+```
+
+`r lorem::ipsum()`
+
+**Słowa kluczowe**: słowa, kluczowe, oddzielone, przecinkami, kilka, ich, będzie
+
+```{=latex}
+\vspace{40pt}
+
+\begin{center}
+\textbf{ABSTRACT}
+\end{center}
+
+\vspace{30pt}
+```
+
+`r lorem::ipsum()`
+
+**Key words**: english, keywords, there will be, a few, of these, in here
+
+\newpage
+
+```{=latex}
+\setcounter{page}{1}
+\fancyhead[LO]{\textbf{\small{Spis treści}}}
+\renewcommand{\headrulewidth}{0.5pt}
+\tableofcontents
+```

@@ -1,0 +1,88 @@
+\usepackage{booktabs}
+\pagestyle{headings}
+\usepackage{fancyhdr} 
+\usepackage{color}
+\usepackage{polski}
+\usepackage{float}
+
+%szybkie pisanie latex
+\newcommand{\doubleC}{\mathbb{C}}
+\newcommand{\doubleE}{\mathbb{E}}
+\newcommand{\doubleN}{\mathbb{N}}
+\newcommand{\doubleP}{\mathbb{P}}
+\newcommand{\doubleQ}{\mathbb{Q}}
+\newcommand{\doubleR}{\mathbb{R}}
+\newcommand{\doubleZ}{\mathbb{Z}}
+\newcommand{\scriptC}{\mathcal{C}}
+% % nawiasy
+\newcommand{\nz}[1]{\left( #1 \right)} %nawias zwykły
+\newcommand{\nk}[1]{\left[ #1 \right]} %nawias kanciaty
+\newcommand{\set}[1]{\left\{ #1 \right\}}
+\newcommand{\abs}[1]{\left| #1 \right|}
+\newcommand{\norm}[1]{\left\| #1 \right\|}
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+\newcommand{\ceil}[1]{\left\lceil #1 \right\rceil}
+\newcommand{\ang}[1]{\left\langle #1 \right\rangle}
+\newcommand{\crn}[1]{\left\ulcorner #1 \right\urcorner}
+% % ładne kwantyfikatory
+%\newcommand{\A}[1]{\:\underset{#1}{\forall}\:}
+%\newcommand{\E}[1]{\:\underset{#1}{\exists}\:}
+\newcommand{\A}[1]{\bigwedge_{#1}}
+\newcommand{\E}[1]{\bigvee_{#1}}
+% % szczałki
+\newcommand{\pcg}{\quad\Rightarrow\quad}%pociąga
+\newcommand{\pcgc}{\quad&\Rightarrow\quad}%pociąga, centrując
+\newcommand{\pcgk}{\Rightarrow}%pociąga krótko
+\newcommand{\pcgd}{\quad\Longrightarrow\quad}%pociąga długo/daleko
+\newcommand{\pcgt}[1]{\overset{#1}{\pcg}}%pociąga z tekstem
+\newcommand{\wtw}{\quad\Leftrightarrow\quad}%wtedy i tylko wtedy
+\newcommand{\wtwc}{\quad&\Leftrightarrow\quad}
+\newcommand{\wtwk}{\Leftrightarrow}
+\newcommand{\wtwd}{\Longleftrightarrow}
+\newcommand{\xwtw}[1]{\overset{#1}{\wtw}}
+\newcommand{\lwtw}{\leftrightarrow}%logiczne wtw
+\makeatletter
+\newcommand{\xto}[2][]{\ext@arrow 0099\rightarrowfill@{#1}{#2}}
+\makeatother
+\newcommand{\bbar}[1]{\overline{\overline{#1}}}
+\newcommand{\whichis}[2]{\underbrace{#2}_{#1}}
+\newcommand{\oo}{\infty}
+
+\newcommand{\AAA}[1]{{\color{red}{\textbf{[#1]}}}}
+
+% twierdzenia i dowody
+\usepackage{amsthm}
+\usepackage[framemethod=TikZ]{mdframed} % ładne ramki
+\newtheoremstyle{definicja}%
+	{3pt}{3pt}{\itshape}{}
+	{\bfseries}% Theorem head font
+	{.}% Punctuation after theorem head
+	{.5em}{}
+\theoremstyle{definicja}
+\newtheorem{defi}{Definicja}[chapter]
+\surroundwithmdframed[roundcorner=5pt,skipabove=3mm,skipbelow=3mm]{defi}
+
+\newtheoremstyle{twierdzenie}%
+	{3pt}{3pt}{\itshape}{}
+	{\bfseries}% Theorem head font
+	{.}% Punctuation after theorem head
+	{.5em}{}
+\theoremstyle{twierdzenie}
+\newtheorem{tw}{Twierdzenie}[chapter]
+\surroundwithmdframed[roundcorner=5pt,skipabove=3mm,skipbelow=3mm]{tw}
+
+\makeatletter % dowód
+\renewenvironment{proof}[1][\proofname]{\par
+  \pushQED{\qed}%
+  \normalfont \topsep6\p@\@plus6\p@\relax
+  \list{}{%
+    \settowidth{\leftmargin}{\itshape\proofname:\hskip\labelsep}%
+    \setlength{\labelwidth}{0pt}%
+    \setlength{\itemindent}{-\leftmargin}%
+  }%
+  \item[\hskip\labelsep\itshape#1\@addpunct{:}]\ignorespaces
+}{%
+  \popQED\endlist\@endpefalse
+}
+\makeatother
+\renewcommand\qedsymbol{$\blacksquare$} % znak końca dowodu

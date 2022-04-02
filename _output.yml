@@ -1,0 +1,4 @@
+bookdown::pdf_book:
+  toc: False
+  includes:
+    in_header: preamble.tex

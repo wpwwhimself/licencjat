@@ -1,0 +1,97 @@
+# Badania symulacyjne
+
+```{=latex}
+\fancyhead[LO]{\textbf{\small{Badania symulacyjne}}}
+\renewcommand{\headrulewidth}{0.5pt}
+```
+
+W celu porównania rozmiarów i mocy testów opisanych w niniejszej pracy, przeprowadza się badania symulacyjne. Wszystkie poszczególne metody będą oznaczone w następujący sposób:
+
+- **test A** -- test asymptotyczny,
+- **test B** -- test bootstrapowy,
+- **test P** -- test permutacyjny,
+- **test BT** -- test oparty o przybliżenie Boxa.
+
+Wszystkie symulacje zostały przeprowadzone przy pomocy środowiska R.
+
+## Opis eksperymentów
+
+Zgodnie z eksperymentami przeprowadzonymi w \cite{MCC} oraz \cite{Smaga} dla testów A, B, P i BT, generuje się serię funkcji losowych $X_i(t)$ postaci
+\begin{equation}\label{eqn:sim_model}
+X_i(t) = \begin{cases}
+m_1(t) + \epsilon_{i1}(t), & t\in[0,1] \\
+m_2(t) + \epsilon_{i2}(t), & t\in[1,2]
+\end{cases}, \quad i\in 1,...,n,
+\end{equation}
+dla funkcji $m_j(t)$ oraz $\epsilon_{ij}(t)$ opisanych poniżej. Rozpatrywany będzie rozmiar próby $n = 25$.
+
+Rozpatrywane będą następujące funkcje:
+
+\begin{align*}
+m_{0,1}(t) &= \sqrt{\frac{6t}{\pi}}\exp(-6t)I_{[0,1]}(t) &\quad
+m_{0,2}(t) &= (\sin(2\pi t^2))^5I_{[0,1]}(t) \\
+m_{1,1}(t) &= \sqrt{\frac{13t}{2\pi}}\exp\left(-\frac{13t}{2}\right)I_{[0,1]}(t) &\quad
+m_{1,2}(t) &= (\sin(2\pi t^2))^3I_{[0,1]}(t) \\
+m_{2,1}(t) &= \sqrt{\frac{11t}{2\pi}}\exp\left(-\frac{11t}{2}\right)I_{[0,1]}(t) &\quad
+m_{2,2}(t) &= (\sin(2\pi t^2))^7I_{[0,1]}(t) \\
+m_{3,1}(t) &= \sqrt{5}t^{\frac{2}{3}}\exp(-7t)I_{[0,1]}(t) &\quad
+m_{3,2}(t) &= (\sin(2\pi t^{\frac{9}{5}}))^3I_{[0,1]}(t)
+\end{align*}
+
+```{r wykresy, fig.cap="Wykresy funkcji $m_{i,j}(t), t\\in[0,1]$, wykorzystanych do przeprowadzenia symulacji", message=F, echo=F, warning=F, fig.height=2}
+library(ggplot2); library(dplyr); library(latex2exp)
+#wykresy chikwadratowe
+ggplot(data.frame(x = 0:1), aes(x)) +
+  theme_minimal() +
+  geom_function(fun = function(t){ sqrt(6*t/pi)*exp(-6*t)}, aes(color = 'a')) +
+  geom_function(fun = function(t){ sqrt(13*t/pi/2)*exp(-13*t/2)}, aes(color = 'b')) +
+  geom_function(fun = function(t){ sqrt(11*t/pi/2)*exp(-11*t/2)}, aes(color = 'c')) +
+  geom_function(fun = function(t){ sqrt(5)*t^(2/3)*exp(-7*t)}, aes(color = 'd')) +
+  xlab("t") + ylab("") + 
+  scale_color_manual(name = "funkcje",
+                     values = c('a'='black', 'b'='red', 'c'='green', 'd'='blue'),
+                     labels = c(TeX("$m_{0,1}(t)$"),
+                                TeX("$m_{1,1}(t)$"),
+                                TeX("$m_{2,1}(t)$"),
+                                TeX("$m_{3,1}(t)$"))) -> plot1
+#wykresy sinusowe
+ggplot(data.frame(x = 0:1), aes(x)) +
+  theme_minimal() +
+  geom_function(fun = function(t){ sin(2*pi*t^2)^5 }, aes(color = 'a')) +
+  geom_function(fun = function(t){ sin(2*pi*t^2)^3 }, aes(color = 'b')) +
+  geom_function(fun = function(t){ sin(2*pi*t^2)^7 }, aes(color = 'c')) +
+  geom_function(fun = function(t){ sin(2*pi*t^(9/5))^3 }, aes(color = 'd')) +
+  xlab("t") + ylab("") + 
+  scale_color_manual(name = "funkcje",
+                     values = c('a'='black', 'b'='red', 'c'='green', 'd'='blue'),
+                     labels = c(TeX("$m_{0,2}(t)$"),
+                                TeX("$m_{1,2}(t)$"),
+                                TeX("$m_{2,2}(t)$"),
+                                TeX("$m_{3,2}(t)$"))) -> plot2
+#multiwykres
+gridExtra::grid.arrange(plot1, plot2, nrow = 1)
+```
+
+Skonstruowanych zostanie 8 różnych modeli spełniających równanie modelu \ref{eqn:sim_model}:
+
+- dla **modeli M0-M3** przyjmuje się $m_1 = m_{0,1}, \quad m_2 = m_{j,1}, j = 0,1,2,3$
+- dla **modeli M4-M7** przyjmuje się $m_1 = m_{0,2}, \quad m_2 = m_{j,2}, j = 0,1,2,3$
+\AAA{czy to znaczy, że M0 i M4 porównuje się dwie takie same funkcje, które różnią się tylko szumem?}
+
+Występujące w równaniu \ref{eqn:sim_model} funkcje losowe $\epsilon_{i1}, \epsilon_{i2}$ konstruuje się na bazie rozkładu normalnego. \AAA{co to są Brownian Bridges?}. Rozpatrywane będą trzy rodzaje funkcji losowych, dalej nazywanych *błędami*:
+
+- **normalny**: $\epsilon_{i1}(t) := \xi B_{i1}(t), \quad \epsilon_{i2}(t) := \rho\epsilon_{i1}(t) + \xi\sqrt{1-\rho^2}B_{i2}(t)$,
+- **lognormalny**: $\epsilon_{ij}(t) := \exp(\epsilon_{ij}(t)), j=1,2$,
+- **mieszany**: $\epsilon_{i1}(t) := \epsilon_{i1}(t), \quad \epsilon_{i2}(t) := \exp(\epsilon_{i2}(t))$
+
+Jako że obliczenie wartości danych funkcji jest możliwe jedynie w dyskretnej liczbie punktów, na potrzeby symulacji wartości procesów $X_i(t), X_i(t+1)$ wygenerowane zostały dla $I=26,101,251$ punktów $t_r\in[0,1], r\in 1,...,I$, dzielących odcinek $[0,1]$ na $I$ równych fragmentów.
+
+Dokonano obliczeń **rozmiarów** i **mocy** empirycznych rozważanych testów na poziomie istotności $\alpha = 5\%$, na podstawie 1000 replikacji. Wyniki przedstawiono w tabelach zaprezentowanych w dalszej części pracy.
+\AAA{definicje tychże}
+
+## Kontrola błędu pierwszego rodzaju
+
+
+
+## Moc testu
+
