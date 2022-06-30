@@ -1,0 +1,64 @@
+# Problem dwóch prób zależnych dla danych funkcjonalnych
+
+```{=latex}
+\fancyhead[LO]{\textbf{\small{Problem dwóch prób zależnych dla danych funkcjonalnych}}}
+\renewcommand{\headrulewidth}{0.5pt}
+```
+
+## Analiza danych funkcjonalnych
+
+Przez *dane funkcjonalne* rozumiemy dane, które możemy reprezentować przez funkcje, powierzchnie, czy obrazy. Dane te mogą być pozyskiwane przy pomocy różnych narzędzi pomiarowych, w regularnych lub&nbsp;nieregularnych odstępach czasu. Otrzymywane w ten sposób pomiary, w dyskretnej (choć najczęściej ogromnej) ich liczbie, można interpolować i wygładzać, w efekcie konstruując ciągłe funkcje oddające przebieg obserwowanego zjawiska w skali makro \cite{MCC}.
+
+W praktyce dane funkcjonalne otrzymywane są przez obserwacje obiektów doświadczalnych w czasie, przestrzeni lub według innych, podobnych kryteriów \cite{Zhang}. Dane te, najczęściej ze względu na narzędzia wykorzystane do pomiarów, zawierają w sobie pewien błąd (szum). Jednym z głównych zadań statystyki jest odpowiedź na pytanie, czy ów szum ma istotny wpływ na zróżnicowanie przedstawianych danych.
+
+Cele analizy danych funkcjonalnych są zasadniczo takie same jak dla innych dziedzin statystyki, m.in. (jak opisano w \cite{Ramsay}):
+
+- reprezentacja danych funkcjonalnych w sposób ułatwiający ich dalszą analizę,
+- przedstawianie danych, aby podkreślić pewne zachodzące zjawiska,
+- wyszukiwanie wzorców i zmienności w obserwowanych danych,
+- przewidywanie zachowania zmiennych zależnych na podstawie informacji o zmiennych niezależnych.
+
+Wiele klasycznych metod statystycznych znalazło już swoje odpowiedniki dla danych funkcjonalnych. Różne metody estymacji, testowania hipotez statystycznych, analizy skupień, regresji, klasyfikacji, wyznaczania obserwacji odstających itd. zostało zaproponowanych do analizy danych funkcjonalnych. Wiele z tych metod można znaleźć w monografiach \cite{Ramsay}, \cite{HK} i \cite{Zhang}. Tematem niniejszej pracy będzie testowanie hipotez statystycznych dotyczących danych funkcjonalnych.
+
+## Problem dwóch prób zależnych
+
+Wiele metod statystycznych ma swoje przełożenie w kontekście analizy danych funkcjonalnych. Niniejsza praca jest poświęcona problemowi *dwóch prób zależnych*, gdzie bada się dane uzyskane dwukrotnie z tego samego źródła, najczęściej w wyniku zmiany warunków eksperymentu.
+
+Tematyka ta została poruszona w \cite{MCC} oraz rozwinięta w \cite{Smaga}. Celem tego dokumentu jest zestawienie i opisanie wyników badań w tej dziedzinie analizy danych funkcjonalnych.
+
+\begin{defi}
+\textbf{Wartością oczekiwaną} zmiennej losowej ciągłej $X$ nazywamy liczbę
+\[
+\doubleE(X) = \int_\doubleR x\cdot f(x)dx
+\]
+gdzie $f$ jest funkcją gęstości rozkładu zmiennej losowej $X$.
+\end{defi}
+
+\begin{defi}
+Dla procesu stochastycznego $X$ na zbiorze $D$ \textbf{funkcja kowariancji} $\doubleC:D\times D\to\doubleR$ jest zdefiniowana jako
+\[
+\doubleC(s,t) = \Cov(X(s), X(t)) = \doubleE\nk{\nz{X(s)-\doubleE(X(s))}\nz{X(t)-\doubleE(X(t))}}
+\]
+\end{defi}
+
+Obiekty matematyczne rozważane w dalszych częściach pracy oznaczane będą w myśl \cite{MCC} oraz \cite{Smaga}:
+
+Załóżmy, że dysponujemy próbą funkcjonalną składającą się z niezależnych funkcji losowych $X_1,X_2, \dots, X_n$, które można przedstawić w następującej postaci:
+\begin{equation}
+X_i(t) = m(t) + \epsilon_i(t), \quad t\in[0,2],
+\label{eqn:addytywnosc}
+\end{equation}
+gdzie $m$ jest daną funkcją, a $\epsilon_i$ są funkcjami losowymi o wartości oczekiwanej $\doubleE(\epsilon_i(t))=0$ oraz funkcji kowariancji $\doubleC(s,t)$. Hipoteza zerowa głosząca, że nie ma istotnych różnic pomiędzy dwoma różnymi warunkami eksperymentu, przyjmuje wówczas postać
+\begin{equation}
+\bigwedge_{t\in [0,1]} H_0: m(t) = m(t+1).
+\label{eqn:h0}
+\end{equation}
+Dla pomiarów $t\in[0,2]$ ignorowane są możliwe okresy, podczas których obiekt nie był monitorowany.
+
+## Statystyka testowa
+
+Na potrzeby testowania prawdziwości wyżej postawionej hipotezy, w pracy \cite{MCC} została zaproponowana następująca statystyka testowa:
+\begin{equation}
+\scriptC_n = n\int_0^1(\bar{X}(t) - \bar{X}(t+1))^2 dt,
+\end{equation}
+gdzie $$\bar{X}(t)= \frac{1}{n}\sum_{i=1}^n X_i(t),\: t\in [0,2]$$ jest funkcją średnią z próby. Ta statystyka testowa została skonstruowana na bazie idei, że hipoteza zerowa powinna zostać odrzucona w przypadku większego poziomu różnic *pomiędzy grupami*, definiowanego jako różnica między średnimi prób, czyli estymatorami funkcji średniej $m$ \cite{Smaga}.

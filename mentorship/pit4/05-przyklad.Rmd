@@ -1,0 +1,89 @@
+# Przykład praktyczny
+
+```{=latex}
+\fancyhead[LO]{\textbf{\small{Tytuł rozdziału z kodem R}}}
+\renewcommand{\headrulewidth}{0.5pt}
+```
+
+```{r include = F}
+opts_chunk$set(fig.pos = "H", warning = F, echo = F, message = F)
+```
+
+Jako ilustrację wyżej przeprowadzonych eksperymentów, opisywane testy zastosowano do danych powiązanych z badaniami dotyczącymi ortez, opisanych w \cite{Zhang}.
+
+Orteza jest urządzeniem ortopedycznym przymocowanym zewnętrznie do kończyny lub ciała w celu zapewnienia podparcia i stabilności, zapobiegania pogorszeniu się złamania lub zastąpienia utraconych możliwości motorycznych. Dane te otrzymano w wyniku eksperymentu przeprowadzanego przez dr Amarantiniego Davida oraz dr Martina Luca (Laboratoire Sport et Performance Motrice, EA 597, UFRAPS, Uniwersytet Grenoble, Francja). Celem badań było prześledzenie, jak mięśnie sprawują się w warunkach zewnętrznych \textcolor{blue}{perturbacji}. W eksperymencie brało udział siedmiu młodych mężczyzn, którzy zostali wyposażeni w sprężynowe ortezy o regulowanej sztywności i testowali je w czterech warunkach: bez ortezy, z ortezą bez sprężyny oraz z dwoma różnymi ortezami wspomaganymi sprężyną. Test polegał na maszerowaniu w miejscu i dla każdej konfiguracji testu przeprowadzony był 10 razy po 20 sekund, z których pomiary prowadzono od 5 do 15 sekundy. W tym czasie urządzenia pomiarowe zebrały dane opisujące moment siły względem kolana pacjenta z 256 równoodległych punktów czasowych, przeskalowanych do odcinka $[0,1]$ (patrz \cite{Zhang} oraz \cite{Smaga}).
+
+Na potrzeby zobrazowania działania opisywanych testów statystycznych wykorzystane zostaną dane na temat warunków bez ortozy oraz z ortezą ze sprężyną nr 1. Dla każdego z uczestników eksperymentu oblicza się funkcje średnie z 10 pomiarów danych przeprowadzonych w ramach odpowiednich warunków doświadczenia. Wykresy tychże funkcji przestawia \textcolor{blue}{Rysunek} \@ref(fig:orteza-dane).
+
+```{r orteza-dane, fig.cap="Wykresy funkcji średnich z 10 pomiarów przeprowadzonych w ramach eksperymentu w warunkach bez ortezy ($t\\in[0,1]$) oraz z ortezą ze sprężyną nr 1 ($t\\in[1,2]$)"}
+dane <- read.table("sauce/Orthosis.txt", header = T) %>% 
+  mutate(across(Condition:Replication, as.factor))
+
+dane <- bind_rows(
+  dane %>%
+    filter(Condition == 1) %>%
+    group_by(Replication, Time, Subject) %>%
+    summarise(x = mean(Moment)) %>%
+    group_by(Time, Subject) %>%
+    summarise(x = mean(x)) %>%
+    tidyr::pivot_wider(names_from = Subject, values_from = x),
+  dane %>%
+    filter(Condition == 3) %>%
+    group_by(Replication, Time, Subject) %>%
+    summarise(x = mean(Moment)) %>%
+    group_by(Time, Subject) %>%
+    summarise(x = mean(x)) %>%
+    tidyr::pivot_wider(names_from = Subject, values_from = x) %>%
+    mutate(Time = Time + 1)
+)
+
+dane %>%
+  tidyr::pivot_longer(-Time, names_to = "Subject", values_to = "Data") %>%
+  ggplot(aes(Time, Data, color = Subject)) + theme_minimal() +
+  geom_line() +
+  xlab("t") + ylab("moment siły") + labs(color = "Pacjent")
+```
+
+Przy takim założeniu eksperymentu, otrzymane dane \textcolor{blue}{stanowią zależne dane funkcjonalne. Porównanie średnich funkcji w obu grupach to problem dwóch prób zależnych.} Do powyższych danych można zatem zastosować omawiane testy statystyczne. Wyniki tychże przedstawia \textcolor{blue}{Tabela \ref{tab:orteza-testy}.}
+
+```{r orteza-testy}
+c(dane %>% t() %>%
+    calc.cn(),
+  dane %>% t() %>%
+    fpp1.test()) %>% t() %>%
+  kable(booktabs = T, escape = F,
+        col.names = c("$\\scriptC_n$", "A", "B", "P", "BT"),
+        caption = "Zestawienie p-wartości testów statystycznych zastosowanych do danych dotyczących ortezy") %>%
+  kable_styling(latex_options = "HOLD_position") %>%
+  add_header_above(c(" ", "p-wartości" = 4))
+```
+
+Każdy z przedstawionych testów statystycznych osiąga p-wartości poniżej poziomu istotności 5%, wobec czego wnioskuje się, że średni moment siły dla wszystkich pacjentów jest istotnie różny dla różnych rodzajów ortezy.
+
+Na podstawie \textcolor{blue}{Rysunku} \@ref(fig:orteza-dane) można jednak zauważyć, że funkcje średnie mogą być równe w ostatniej fazie eksperymentu, tj. dla $t\in[0,8; 1]\cup[1,8; 2]$. Dla tak zmodyfikowanych danych (patrz \textcolor{blue}{Rysunek} \@ref(fig:orteza-dane-short)) przeprowadzono ponownie wszystkie cztery testy, a otrzymane wyniki zebrano w \textcolor{blue}{Tabeli} \@ref(tab:orteza-testy-short).
+
+```{r orteza-dane-short, fig.cap="Wykresy funkcji średnich w ostatniej fazie eksperymentu. Przedziały czasowe zostały przeskalowane do odcinka $[0,2]$"}
+dane.short <- dane %>%
+  filter(between(Time, 0.8, 1) | between(Time, 1.8, 2)) %>%
+  mutate(Time = if_else(Time <= 1, (Time-0.8)/(1-0.8), (Time-1.8)/(2-1.8)+1))
+
+dane.short %>%
+  tidyr::pivot_longer(-Time, names_to = "Subject", values_to = "Data") %>%
+  ggplot(aes(Time, Data, color = Subject)) + theme_minimal() +
+  geom_line() +
+  xlab("t") + ylab("moment siły") + labs(color = "Pacjent")
+```
+
+```{r orteza-testy-short}
+c(dane.short %>% t() %>%
+    calc.cn(),
+  dane.short %>% t() %>%
+    fpp1.test()) %>% t() %>%
+  kable(booktabs = T, escape = F,
+        col.names = c("$\\scriptC_n$", "A", "B", "P", "BT"),
+        caption = "Zestawienie p-wartości testów statystycznych zastosowanych do skróconych danych dotyczących ortezy") %>%
+  kable_styling(latex_options = "HOLD_position") %>%
+  add_header_above(c(" ", "p-wartości" = 4))
+```
+
+Wyniki testów dla zmodyfikowanych danych nie dają podstaw do odrzucenia hipotezy o równości funkcji -- wobec tego \textcolor{blue}{można twierdzić}, że w ostatniej fazie eksperymentu moment siły jest równy dla wszystich pacjentów niezależnie od rodzaju używanej ortezy.

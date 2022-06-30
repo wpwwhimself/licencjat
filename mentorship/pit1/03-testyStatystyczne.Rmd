@@ -1,0 +1,57 @@
+# Testy statystyczne
+
+```{=latex}
+\fancyhead[LO]{\textbf{\small{Testy statystyczne}}}
+\renewcommand{\headrulewidth}{0.5pt}
+```
+
+## Test asymptotyczny
+
+\textcolor{blue}{Niech $L^2[a,b]$, $a,b\in\mathbb{R}$, $a<b$, oznacza przestrzeń Hilberta funkcji całkowalnych z kwadratem określonych na przedziale $[a,b]$, tj. $f\in L^2[a,b]$, gdy $$\int_a^bf^2(x)dx<\infty.$$}
+
+W podejściu asymptotycznym przedstawionym w \cite{MCC} formułuje się następujące twierdzenie:
+\begin{tw}
+\textcolor{blue}{tutaj należy dodać jeszcze założenie A1-A4 z mojej pracy}
+
+Niech \textcolor{blue}{$$X_i(t) = m(t)+\epsilon_i(t), 1\leqslant i\leqslant n$$} będą $n$ niezależnymi \textcolor{blue}{procesami losowymi należącymi do przestrzeni $L^2[0,2]$} definiowanych na przedziale $[0,2]$, \textcolor{blue}{gdzie $m$ jest daną funkcją, a $\epsilon_i$ jest procesem losowym o średniej zero oraz funkcją kowariancji $\doubleC(s,t)$.} Wówczas przy prawdziwości hipotezy zerowej $\bigwedge_{t\in[0,1]}m(t)=m(1+t)$ \textcolor{blue}{mamy
+\[
+\scriptC_n \xto{d}\sum_{k\in\doubleN} \lambda_kA_k,
+\]}
+gdzie \textcolor{blue}{$A_k$ są niezależnymi zmiennymi losowymi o centralnym rozkładzie $\chi^2$ z jednym stopniem swobody, a $\lambda_1,\lambda_2,\dots$ są wartościami własnymi funkcji kowariancji $$\mathbb{K}(s,t)=\mathbb{C}(s,t)-\mathbb{C}(s,t+1)-\mathbb{C}(s+1,t)+\mathbb{C}(s+1,t+1),\ s,t\in[0,1]$$ takimi, że $\lambda_1\geqslant \lambda_2\geqslant \dots\geqslant 0$ i $\sum_{i=1}^\infty\lambda_i^2<\infty$.}
+
+\AAA{czym to wszystko jest? Central $\chi^2$ distribution?}
+\end{tw}
+\begin{proof}
+
+\end{proof}
+
+## Testy bootstrapowe i permutacyjne
+
+Założenie addytywności przedstawione w równaniu \textcolor{blue}{\eqref{eqn:addytywnosc} nie jest spełnione} dla wielu różnych funkcji, w szczególności \textcolor{blue}{funkcji} gęstości -- muszą one spełniać konkretne warunki \AAA{[definicja gęstości?]} - \textcolor{blue}{tak ale krótko}. W związku z tym w \textcolor{blue}{pracy} \cite{MCC} przedstawia się dwa podejścia nieparametryczne, niewymagające wyżej wspomnianego założenia o addytywności.
+
+Przy prawdziwości hipotezy zerowej spełniona jest równość
+\begin{equation}
+\label{eqn:c_h0}
+\scriptC_n = n\int_0^1 (\bar{X}(t) - m(t) + m(1+t) - \bar{X}(1+t))^2 dt.
+\end{equation}
+\textcolor{blue}{W celu przybliżenia rozkładu prawdopodobieństwa} powyższej statystyki można wykorzystać **metodę bootstrapową**. \textcolor{blue}{Metoda ta przebiega w następujących krokach:}
+
+1. Obliczyć \textcolor{blue}{wartość statystyki} $\scriptC_n$ na podstawie \textcolor{blue}{danych oryginalnych}. \textcolor{blue}{Niech $C_0$ oznacza tę wartość.}
+2. Wybrać $B$ niezależnych prób bootstrapowych \AAA{nie skończyłem}
+3. \textcolor{blue}{Dla każdej próby bootstrapowej wybranej w kroku 2., obliczyć wartości statystyki testowej $\scriptC_n$. Niech $C_1,C_2,\dots,C_B$ oznaczają otrzymane wartości.}
+4. \textcolor{blue}{Oblicz $p$-wartość według wzoru: $$\frac{1}{B}\sum_{i=1}^BI(C_i>C_0).$$}
+
+\begin{tw}
+\AAA{zbieżność do tego czegoś}
+\end{tw}
+\begin{proof}
+
+\end{proof}
+
+## Test oparty o przybliżenie Boxa
+
+W \cite{Smaga} zwrócono uwagę na problem wyżej opisanych metod, jakim jest ich czasochłonność. W celu znalezienia szybszego \textcolor{blue}{sposobu} przybliżenia rozkładu \textcolor{blue}{statystyki} $\scriptC_n$, \textcolor{blue}{w tej pracy} wykorzystano przybliżenie Boxa przy założeniu hipotezy zerowej.
+
+\AAA{czy tu ma być cały proces badawczy z \cite{Smaga} przepisany?}
+
+\textcolor{blue}{tutaj trzeba napisać całą procedurę, ale może bez zbędnych elementów nad którymi się rozwodziłem}

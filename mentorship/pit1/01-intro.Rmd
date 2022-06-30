@@ -1,0 +1,15 @@
+# Wstęp {-}
+
+```{=latex}
+\fancyhead[LO]{\textbf{\small{Wstęp}}}
+\renewcommand{\headrulewidth}{0.5pt}
+```
+
+Praca składa się z następujących rozdziałów:
+
+- **Rozdział 1**: opisanie problemu dwóch prób zależnych dla danych funkcjonalnych oraz przedstawienie odpowiedniej statystyki testowej,
+- **Rozdział 2**: przedstawienie różnych metod prowadzących do postaci czterech testów statystycznych,
+- **Rozdział 3**: przeprowadzenie symulacji mających na celu porównanie \textcolor{blue}{własności skończenie próbkowych} przedstawionych testów statystycznych, \textcolor{blue}{tj. kontroli błędu pierwszego rodzaju i mocy testu,}
+- **Rozdział 4**: zastosowanie przedstawionych testów statystycznych do \textcolor{blue}{rzeczywistych} danych.
+
+Pisząc niniejszą pracę korzystałem z literatury podanej w bibliografii. Jest ona podstawowym źródłem rozszerzającym informacje na tematy tu poruszane. Numeracja definicji, twierdzeń oraz przykładów jest oddzielna dla każdego rozdziału. Pierwsza cyfra oznacza numer rozdziału, a druga to kolejny numer twierdzenia, przykładu, itp. Analogicznie numerowane są wzory. Dowody kończą się symbolem $\blacksquare$.

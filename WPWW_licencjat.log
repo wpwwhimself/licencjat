@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.10) (preloaded format=pdflatex 2022.3.12)  29 MAR 2022 15:20
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.10) (preloaded format=pdflatex 2022.3.12)  30 MAY 2022 18:27
 entering extended mode
 **./WPWW_licencjat.tex
 (WPWW_licencjat.tex
@@ -441,6 +441,27 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \float@box=\box57
 \@float@everytoks=\toks29
 \@floatcapt=\box58
+)
+(C:\Users\thehy\AppData\Local\Programs\MiKTeX\tex/latex/mathtools\mathtools.sty
+Package: mathtools 2021/04/12 v1.27 mathematical typesetting tools
+(C:\Users\thehy\AppData\Local\Programs\MiKTeX\tex/latex/mathtools\mhsetup.sty
+Package: mhsetup 2021/03/18 v1.4 programming setup (MH)
+)
+LaTeX Info: Thecontrolsequence`\('isalreadyrobust on input line 130.
+LaTeX Info: Thecontrolsequence`\)'isalreadyrobust on input line 130.
+LaTeX Info: Thecontrolsequence`\['isalreadyrobust on input line 130.
+LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 130.
+\g_MT_multlinerow_int=\count292
+\l_MT_multwidth_dim=\dimen184
+\origjot=\skip72
+\l_MT_shortvdotswithinadjustabove_dim=\dimen185
+\l_MT_shortvdotswithinadjustbelow_dim=\dimen186
+\l_MT_above_intertext_sep=\dimen187
+\l_MT_below_intertext_sep=\dimen188
+\l_MT_above_shortintertext_sep=\dimen189
+\l_MT_below_shortintertext_sep=\dimen190
+\xmathstrut@box=\box59
+\xmathstrut@dim=\dimen191
 ) (C:\Users\thehy\AppData\Local\Programs\MiKTeX\tex/latex/amscls\amsthm.sty
 Package: amsthm 2020/05/29 v2.20.6
 \thm@style=\toks30
@@ -448,9 +469,9 @@ Package: amsthm 2020/05/29 v2.20.6
 \thm@headfont=\toks32
 \thm@notefont=\toks33
 \thm@headpunct=\toks34
-\thm@preskip=\skip72
-\thm@postskip=\skip73
-\thm@headsep=\skip74
+\thm@preskip=\skip73
+\thm@postskip=\skip74
+\thm@headsep=\skip75
 \dth@everypar=\toks35
 ) (C:\Users\thehy\AppData\Local\Programs\MiKTeX\tex/latex/mdframed\mdframed.sty
 Package: mdframed 2013/07/01 1.9b: mdframed
@@ -463,8 +484,8 @@ Package: expl3 2020-10-05 L3 programming layer (loader)
 (C:\Users\thehy\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
 tex.def
 File: l3backend-pdftex.def 2020-09-24 L3 backend support: PDF output (pdfTeX)
-\l__kernel_color_stack_int=\count292
-\l__pdf_internal_box=\box59
+\l__kernel_color_stack_int=\count293
+\l__pdf_internal_box=\box60
 ))
 Package: xparse 2020-10-05 L3 Experimental document command parser
 
@@ -478,53 +499,53 @@ Package zref Info: New property list: main on input line 764.
 Package zref Info: New property: default on input line 765.
 Package zref Info: New property: page on input line 766.
 )
-\c@abspage=\count293
+\c@abspage=\count294
 Package zref Info: New property: abspage on input line 66.
 )
 (C:\Users\thehy\AppData\Local\Programs\MiKTeX\tex/latex/needspace\needspace.sty
 Package: needspace 2010/09/12 v1.3d reserve vertical space
 )
-\mdf@templength=\skip75
-\c@mdf@globalstyle@cnt=\count294
-\mdf@skipabove@length=\skip76
-\mdf@skipbelow@length=\skip77
-\mdf@leftmargin@length=\skip78
-\mdf@rightmargin@length=\skip79
-\mdf@innerleftmargin@length=\skip80
-\mdf@innerrightmargin@length=\skip81
-\mdf@innertopmargin@length=\skip82
-\mdf@innerbottommargin@length=\skip83
-\mdf@splittopskip@length=\skip84
-\mdf@splitbottomskip@length=\skip85
-\mdf@outermargin@length=\skip86
-\mdf@innermargin@length=\skip87
-\mdf@linewidth@length=\skip88
-\mdf@innerlinewidth@length=\skip89
-\mdf@middlelinewidth@length=\skip90
-\mdf@outerlinewidth@length=\skip91
-\mdf@roundcorner@length=\skip92
-\mdf@footenotedistance@length=\skip93
-\mdf@userdefinedwidth@length=\skip94
-\mdf@needspace@length=\skip95
-\mdf@frametitleaboveskip@length=\skip96
-\mdf@frametitlebelowskip@length=\skip97
-\mdf@frametitlerulewidth@length=\skip98
-\mdf@frametitleleftmargin@length=\skip99
-\mdf@frametitlerightmargin@length=\skip100
-\mdf@shadowsize@length=\skip101
-\mdf@extratopheight@length=\skip102
-\mdf@subtitleabovelinewidth@length=\skip103
-\mdf@subtitlebelowlinewidth@length=\skip104
-\mdf@subtitleaboveskip@length=\skip105
-\mdf@subtitlebelowskip@length=\skip106
-\mdf@subtitleinneraboveskip@length=\skip107
-\mdf@subtitleinnerbelowskip@length=\skip108
-\mdf@subsubtitleabovelinewidth@length=\skip109
-\mdf@subsubtitlebelowlinewidth@length=\skip110
-\mdf@subsubtitleaboveskip@length=\skip111
-\mdf@subsubtitlebelowskip@length=\skip112
-\mdf@subsubtitleinneraboveskip@length=\skip113
-\mdf@subsubtitleinnerbelowskip@length=\skip114
+\mdf@templength=\skip76
+\c@mdf@globalstyle@cnt=\count295
+\mdf@skipabove@length=\skip77
+\mdf@skipbelow@length=\skip78
+\mdf@leftmargin@length=\skip79
+\mdf@rightmargin@length=\skip80
+\mdf@innerleftmargin@length=\skip81
+\mdf@innerrightmargin@length=\skip82
+\mdf@innertopmargin@length=\skip83
+\mdf@innerbottommargin@length=\skip84
+\mdf@splittopskip@length=\skip85
+\mdf@splitbottomskip@length=\skip86
+\mdf@outermargin@length=\skip87
+\mdf@innermargin@length=\skip88
+\mdf@linewidth@length=\skip89
+\mdf@innerlinewidth@length=\skip90
+\mdf@middlelinewidth@length=\skip91
+\mdf@outerlinewidth@length=\skip92
+\mdf@roundcorner@length=\skip93
+\mdf@footenotedistance@length=\skip94
+\mdf@userdefinedwidth@length=\skip95
+\mdf@needspace@length=\skip96
+\mdf@frametitleaboveskip@length=\skip97
+\mdf@frametitlebelowskip@length=\skip98
+\mdf@frametitlerulewidth@length=\skip99
+\mdf@frametitleleftmargin@length=\skip100
+\mdf@frametitlerightmargin@length=\skip101
+\mdf@shadowsize@length=\skip102
+\mdf@extratopheight@length=\skip103
+\mdf@subtitleabovelinewidth@length=\skip104
+\mdf@subtitlebelowlinewidth@length=\skip105
+\mdf@subtitleaboveskip@length=\skip106
+\mdf@subtitlebelowskip@length=\skip107
+\mdf@subtitleinneraboveskip@length=\skip108
+\mdf@subtitleinnerbelowskip@length=\skip109
+\mdf@subsubtitleabovelinewidth@length=\skip110
+\mdf@subsubtitlebelowlinewidth@length=\skip111
+\mdf@subsubtitleaboveskip@length=\skip112
+\mdf@subsubtitlebelowskip@length=\skip113
+\mdf@subsubtitleinneraboveskip@length=\skip114
+\mdf@subsubtitleinnerbelowskip@length=\skip115
 
 (C:\Users\thehy\AppData\Local\Programs\MiKTeX\tex/latex/pgf/frontendlayer\tikz.
 sty (C:\Users\thehy\AppData\Local\Programs\MiKTeX\tex/latex/pgf/basiclayer\pgf.
@@ -534,14 +555,14 @@ y
 (C:\Users\thehy\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfutil
 -common.tex
 \pgfutil@everybye=\toks36
-\pgfutil@tempdima=\dimen184
-\pgfutil@tempdimb=\dimen185
+\pgfutil@tempdima=\dimen192
+\pgfutil@tempdimb=\dimen193
 
 (C:\Users\thehy\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfutil
 -common-lists.tex))
 (C:\Users\thehy\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfutil
 -latex.def
-\pgfutil@abb=\box60
+\pgfutil@abb=\box61
 )
 (C:\Users\thehy\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfrcs.
 code.tex (C:\Users\thehy\AppData\Local\Programs\MiKTeX\tex/generic/pgf\pgf.revi
@@ -567,26 +588,26 @@ Package: pgfsys 2020/10/01 v3.1.6a (3.1.6a)
 filtered.code.tex
 \pgfkeys@tmptoks=\toks39
 ))
-\pgf@x=\dimen186
-\pgf@y=\dimen187
-\pgf@xa=\dimen188
-\pgf@ya=\dimen189
-\pgf@xb=\dimen190
-\pgf@yb=\dimen191
-\pgf@xc=\dimen192
-\pgf@yc=\dimen193
-\pgf@xd=\dimen194
-\pgf@yd=\dimen195
+\pgf@x=\dimen194
+\pgf@y=\dimen195
+\pgf@xa=\dimen196
+\pgf@ya=\dimen197
+\pgf@xb=\dimen198
+\pgf@yb=\dimen199
+\pgf@xc=\dimen256
+\pgf@yc=\dimen257
+\pgf@xd=\dimen258
+\pgf@yd=\dimen259
 \w@pgf@writea=\write3
 \r@pgf@reada=\read2
-\c@pgf@counta=\count295
-\c@pgf@countb=\count296
-\c@pgf@countc=\count297
-\c@pgf@countd=\count298
+\c@pgf@counta=\count296
+\c@pgf@countb=\count297
+\c@pgf@countc=\count298
+\c@pgf@countd=\count299
 \t@pgf@toka=\toks40
 \t@pgf@tokb=\toks41
 \t@pgf@tokc=\toks42
-\pgf@sys@id@count=\count299
+\pgf@sys@id@count=\count300
 
 (C:\Users\thehy\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgf.c
 fg
@@ -605,8 +626,8 @@ File: pgfsys-common-pdf.def 2020/10/01 v3.1.6a (3.1.6a)
 (C:\Users\thehy\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsy
 ssoftpath.code.tex
 File: pgfsyssoftpath.code.tex 2020/10/01 v3.1.6a (3.1.6a)
-\pgfsyssoftpath@smallbuffer@items=\count300
-\pgfsyssoftpath@bigbuffer@items=\count301
+\pgfsyssoftpath@smallbuffer@items=\count301
+\pgfsyssoftpath@bigbuffer@items=\count302
 )
 (C:\Users\thehy\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsy
 sprotocol.code.tex
@@ -624,9 +645,9 @@ code.tex
 code.tex)
 (C:\Users\thehy\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathparse
 r.code.tex
-\pgfmath@dimen=\dimen196
-\pgfmath@count=\count302
-\pgfmath@box=\box61
+\pgfmath@dimen=\dimen260
+\pgfmath@count=\count303
+\pgfmath@box=\box62
 \pgfmath@toks=\toks43
 \pgfmath@stack@operand=\toks44
 \pgfmath@stack@operation=\toks45
@@ -651,59 +672,59 @@ ions.misc.code.tex)
 ions.integerarithmetics.code.tex)))
 (C:\Users\thehy\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfloat
 .code.tex
-\c@pgfmathroundto@lastzeros=\count303
+\c@pgfmathroundto@lastzeros=\count304
 ))
 (C:\Users\thehy\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfint.code.
 tex)
 (C:\Users\thehy\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
 epoints.code.tex
 File: pgfcorepoints.code.tex 2020/10/01 v3.1.6a (3.1.6a)
-\pgf@picminx=\dimen197
-\pgf@picmaxx=\dimen198
-\pgf@picminy=\dimen199
-\pgf@picmaxy=\dimen256
-\pgf@pathminx=\dimen257
-\pgf@pathmaxx=\dimen258
-\pgf@pathminy=\dimen259
-\pgf@pathmaxy=\dimen260
-\pgf@xx=\dimen261
-\pgf@xy=\dimen262
-\pgf@yx=\dimen263
-\pgf@yy=\dimen264
-\pgf@zx=\dimen265
-\pgf@zy=\dimen266
+\pgf@picminx=\dimen261
+\pgf@picmaxx=\dimen262
+\pgf@picminy=\dimen263
+\pgf@picmaxy=\dimen264
+\pgf@pathminx=\dimen265
+\pgf@pathmaxx=\dimen266
+\pgf@pathminy=\dimen267
+\pgf@pathmaxy=\dimen268
+\pgf@xx=\dimen269
+\pgf@xy=\dimen270
+\pgf@yx=\dimen271
+\pgf@yy=\dimen272
+\pgf@zx=\dimen273
+\pgf@zy=\dimen274
 )
 (C:\Users\thehy\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
 epathconstruct.code.tex
 File: pgfcorepathconstruct.code.tex 2020/10/01 v3.1.6a (3.1.6a)
-\pgf@path@lastx=\dimen267
-\pgf@path@lasty=\dimen268
+\pgf@path@lastx=\dimen275
+\pgf@path@lasty=\dimen276
 )
 (C:\Users\thehy\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
 epathusage.code.tex
 File: pgfcorepathusage.code.tex 2020/10/01 v3.1.6a (3.1.6a)
-\pgf@shorten@end@additional=\dimen269
-\pgf@shorten@start@additional=\dimen270
+\pgf@shorten@end@additional=\dimen277
+\pgf@shorten@start@additional=\dimen278
 )
 (C:\Users\thehy\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
 escopes.code.tex
 File: pgfcorescopes.code.tex 2020/10/01 v3.1.6a (3.1.6a)
-\pgfpic=\box62
-\pgf@hbox=\box63
-\pgf@layerbox@main=\box64
-\pgf@picture@serial@count=\count304
+\pgfpic=\box63
+\pgf@hbox=\box64
+\pgf@layerbox@main=\box65
+\pgf@picture@serial@count=\count305
 )
 (C:\Users\thehy\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
 egraphicstate.code.tex
 File: pgfcoregraphicstate.code.tex 2020/10/01 v3.1.6a (3.1.6a)
-\pgflinewidth=\dimen271
+\pgflinewidth=\dimen279
 )
 (C:\Users\thehy\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
 etransformations.code.tex
 File: pgfcoretransformations.code.tex 2020/10/01 v3.1.6a (3.1.6a)
-\pgf@pt@x=\dimen272
-\pgf@pt@y=\dimen273
-\pgf@pt@temp=\dimen274
+\pgf@pt@x=\dimen280
+\pgf@pt@y=\dimen281
+\pgf@pt@temp=\dimen282
 )
 (C:\Users\thehy\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
 equick.code.tex
@@ -720,14 +741,14 @@ File: pgfcorepathprocessing.code.tex 2020/10/01 v3.1.6a (3.1.6a)
 (C:\Users\thehy\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
 earrows.code.tex
 File: pgfcorearrows.code.tex 2020/10/01 v3.1.6a (3.1.6a)
-\pgfarrowsep=\dimen275
+\pgfarrowsep=\dimen283
 )
 (C:\Users\thehy\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
 eshade.code.tex
 File: pgfcoreshade.code.tex 2020/10/01 v3.1.6a (3.1.6a)
-\pgf@max=\dimen276
-\pgf@sys@shading@range@num=\count305
-\pgf@shadingcount=\count306
+\pgf@max=\dimen284
+\pgf@sys@shading@range@num=\count306
+\pgf@shadingcount=\count307
 )
 (C:\Users\thehy\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
 eimage.code.tex
@@ -736,7 +757,7 @@ File: pgfcoreimage.code.tex 2020/10/01 v3.1.6a (3.1.6a)
 (C:\Users\thehy\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
 eexternal.code.tex
 File: pgfcoreexternal.code.tex 2020/10/01 v3.1.6a (3.1.6a)
-\pgfexternal@startupbox=\box65
+\pgfexternal@startupbox=\box66
 ))
 (C:\Users\thehy\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
 elayers.code.tex
@@ -757,7 +778,7 @@ File: pgfcorerdf.code.tex 2020/10/01 v3.1.6a (3.1.6a)
 (C:\Users\thehy\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodule
 shapes.code.tex
 File: pgfmoduleshapes.code.tex 2020/10/01 v3.1.6a (3.1.6a)
-\pgfnodeparttextbox=\box66
+\pgfnodeparttextbox=\box67
 )
 (C:\Users\thehy\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodule
 plot.code.tex
@@ -766,8 +787,8 @@ File: pgfmoduleplot.code.tex 2020/10/01 v3.1.6a (3.1.6a)
 (C:\Users\thehy\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibility\pgfco
 mp-version-0-65.sty
 Package: pgfcomp-version-0-65 2020/10/01 v3.1.6a (3.1.6a)
-\pgf@nodesepstart=\dimen277
-\pgf@nodesepend=\dimen278
+\pgf@nodesepstart=\dimen285
+\pgf@nodesepend=\dimen286
 )
 (C:\Users\thehy\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibility\pgfco
 mp-version-1-18.sty
@@ -788,8 +809,8 @@ Package: pgffor 2020/10/01 v3.1.6a (3.1.6a)
 
 (C:\Users\thehy\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmath.code
 .tex)
-\pgffor@iter=\dimen279
-\pgffor@skip=\dimen280
+\pgffor@iter=\dimen287
+\pgffor@skip=\dimen288
 \pgffor@stack=\toks46
 \pgffor@toks=\toks47
 ))
@@ -800,34 +821,34 @@ Package: tikz 2020/10/01 v3.1.6a (3.1.6a)
 (C:\Users\thehy\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibr
 aryplothandlers.code.tex
 File: pgflibraryplothandlers.code.tex 2020/10/01 v3.1.6a (3.1.6a)
-\pgf@plot@mark@count=\count307
-\pgfplotmarksize=\dimen281
+\pgf@plot@mark@count=\count308
+\pgfplotmarksize=\dimen289
 )
-\tikz@lastx=\dimen282
-\tikz@lasty=\dimen283
-\tikz@lastxsaved=\dimen284
-\tikz@lastysaved=\dimen285
-\tikz@lastmovetox=\dimen286
-\tikz@lastmovetoy=\dimen287
-\tikzleveldistance=\dimen288
-\tikzsiblingdistance=\dimen289
-\tikz@figbox=\box67
-\tikz@figbox@bg=\box68
-\tikz@tempbox=\box69
-\tikz@tempbox@bg=\box70
-\tikztreelevel=\count308
-\tikznumberofchildren=\count309
-\tikznumberofcurrentchild=\count310
-\tikz@fig@count=\count311
+\tikz@lastx=\dimen290
+\tikz@lasty=\dimen291
+\tikz@lastxsaved=\dimen292
+\tikz@lastysaved=\dimen293
+\tikz@lastmovetox=\dimen294
+\tikz@lastmovetoy=\dimen295
+\tikzleveldistance=\dimen296
+\tikzsiblingdistance=\dimen297
+\tikz@figbox=\box68
+\tikz@figbox@bg=\box69
+\tikz@tempbox=\box70
+\tikz@tempbox@bg=\box71
+\tikztreelevel=\count309
+\tikznumberofchildren=\count310
+\tikznumberofcurrentchild=\count311
+\tikz@fig@count=\count312
 
 (C:\Users\thehy\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodule
 matrix.code.tex
 File: pgfmodulematrix.code.tex 2020/10/01 v3.1.6a (3.1.6a)
-\pgfmatrixcurrentrow=\count312
-\pgfmatrixcurrentcolumn=\count313
-\pgf@matrix@numberofcolumns=\count314
+\pgfmatrixcurrentrow=\count313
+\pgfmatrixcurrentcolumn=\count314
+\pgf@matrix@numberofcolumns=\count315
 )
-\tikz@expandcount=\count315
+\tikz@expandcount=\count316
 
 (C:\Users\thehy\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
 z/libraries\tikzlibrarytopaths.code.tex
@@ -836,63 +857,152 @@ File: tikzlibrarytopaths.code.tex 2020/10/01 v3.1.6a (3.1.6a)
 (C:\Users\thehy\AppData\Local\Programs\MiKTeX\tex/latex/mdframed\md-frame-1.mdf
 File: md-frame-1.mdf 2013/07/01\ 1.9b: md-frame-1
 )
-\mdf@frametitlebox=\box71
-\mdf@footnotebox=\box72
-\mdf@splitbox@one=\box73
-\mdf@splitbox@two=\box74
-\mdf@splitbox@save=\box75
-\mdfsplitboxwidth=\skip115
-\mdfsplitboxtotalwidth=\skip116
-\mdfsplitboxheight=\skip117
-\mdfsplitboxdepth=\skip118
-\mdfsplitboxtotalheight=\skip119
-\mdfframetitleboxwidth=\skip120
-\mdfframetitleboxtotalwidth=\skip121
-\mdfframetitleboxheight=\skip122
-\mdfframetitleboxdepth=\skip123
-\mdfframetitleboxtotalheight=\skip124
-\mdffootnoteboxwidth=\skip125
-\mdffootnoteboxtotalwidth=\skip126
-\mdffootnoteboxheight=\skip127
-\mdffootnoteboxdepth=\skip128
-\mdffootnoteboxtotalheight=\skip129
-\mdftotallinewidth=\skip130
-\mdfboundingboxwidth=\skip131
-\mdfboundingboxtotalwidth=\skip132
-\mdfboundingboxheight=\skip133
-\mdfboundingboxdepth=\skip134
-\mdfboundingboxtotalheight=\skip135
-\mdf@freevspace@length=\skip136
-\mdf@horizontalwidthofbox@length=\skip137
-\mdf@verticalmarginwhole@length=\skip138
-\mdf@horizontalspaceofbox=\skip139
-\mdfsubtitleheight=\skip140
-\mdfsubsubtitleheight=\skip141
-\c@mdfcountframes=\count316
+\mdf@frametitlebox=\box72
+\mdf@footnotebox=\box73
+\mdf@splitbox@one=\box74
+\mdf@splitbox@two=\box75
+\mdf@splitbox@save=\box76
+\mdfsplitboxwidth=\skip116
+\mdfsplitboxtotalwidth=\skip117
+\mdfsplitboxheight=\skip118
+\mdfsplitboxdepth=\skip119
+\mdfsplitboxtotalheight=\skip120
+\mdfframetitleboxwidth=\skip121
+\mdfframetitleboxtotalwidth=\skip122
+\mdfframetitleboxheight=\skip123
+\mdfframetitleboxdepth=\skip124
+\mdfframetitleboxtotalheight=\skip125
+\mdffootnoteboxwidth=\skip126
+\mdffootnoteboxtotalwidth=\skip127
+\mdffootnoteboxheight=\skip128
+\mdffootnoteboxdepth=\skip129
+\mdffootnoteboxtotalheight=\skip130
+\mdftotallinewidth=\skip131
+\mdfboundingboxwidth=\skip132
+\mdfboundingboxtotalwidth=\skip133
+\mdfboundingboxheight=\skip134
+\mdfboundingboxdepth=\skip135
+\mdfboundingboxtotalheight=\skip136
+\mdf@freevspace@length=\skip137
+\mdf@horizontalwidthofbox@length=\skip138
+\mdf@verticalmarginwhole@length=\skip139
+\mdf@horizontalspaceofbox=\skip140
+\mdfsubtitleheight=\skip141
+\mdfsubsubtitleheight=\skip142
+\c@mdfcountframes=\count317
 
 ****** mdframed patching \endmdf@trivlist
 
 ****** -- success******
 
-\mdf@envdepth=\count317
-\c@mdf@env@i=\count318
-\c@mdf@env@ii=\count319
-\c@mdf@zref@counter=\count320
+\mdf@envdepth=\count318
+\c@mdf@env@i=\count319
+\c@mdf@env@ii=\count320
+\c@mdf@zref@counter=\count321
 Package zref Info: New property: mdf@pagevalue on input line 895.
 )
-\c@defi=\count321
-\c@tw=\count322
-(C:\Users\thehy\AppData\Local\Programs\MiKTeX\tex/generic/babel\babel.sty
+\c@defi=\count322
+\c@tw=\count323
+\c@lm=\count324
+(C:\Users\thehy\AppData\Local\Programs\MiKTeX\tex/latex/multirow\multirow.sty
+Package: multirow 2021/03/15 v2.8 Span multiple rows of a table
+\multirow@colwidth=\skip143
+\multirow@cntb=\count325
+\multirow@dima=\skip144
+\bigstrutjot=\dimen298
+) (C:\Users\thehy\AppData\Local\Programs\MiKTeX\tex/latex/wrapfig\wrapfig.sty
+\wrapoverhang=\dimen299
+\WF@size=\dimen300
+\c@WF@wrappedlines=\count326
+\WF@box=\box77
+\WF@everypar=\toks48
+Package: wrapfig 2003/01/31  v 3.6
+) (C:\Users\thehy\AppData\Local\Programs\MiKTeX\tex/latex/colortbl\colortbl.sty
+Package: colortbl 2020/01/04 v1.0e Color table columns (DPC)
+\everycr=\toks49
+\minrowclearance=\skip145
+)
+(C:\Users\thehy\AppData\Local\Programs\MiKTeX\tex/latex/pdflscape\pdflscape.sty
+Package: pdflscape 2019/12/05 v0.12 Display of landscape pages in PDF (HO)
+(C:\Users\thehy\AppData\Local\Programs\MiKTeX\tex/latex/graphics\lscape.sty
+Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
+)
+Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
+) (C:\Users\thehy\AppData\Local\Programs\MiKTeX\tex/latex/tabu\tabu.sty
+Package: tabu 2019/01/11 v2.9 - flexible LaTeX tabulars (FC+tabu-fixed)
+(C:\Users\thehy\AppData\Local\Programs\MiKTeX\tex/latex/varwidth\varwidth.sty
+Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
+\@vwid@box=\box78
+\sift@deathcycles=\count327
+\@vwid@loff=\dimen301
+\@vwid@roff=\dimen302
+)
+\c@taburow=\count328
+\tabu@nbcols=\count329
+\tabu@cnt=\count330
+\tabu@Xcol=\count331
+\tabu@alloc=\count332
+\tabu@nested=\count333
+\tabu@target=\dimen303
+\tabu@spreadtarget=\dimen304
+\tabu@naturalX=\dimen305
+\tabucolX=\dimen306
+\tabu@Xsum=\dimen307
+\extrarowdepth=\dimen308
+\abovetabulinesep=\dimen309
+\belowtabulinesep=\dimen310
+\tabustrutrule=\dimen311
+\tabu@thebody=\toks50
+\tabu@footnotes=\toks51
+\tabu@box=\box79
+\tabu@arstrutbox=\box80
+\tabu@hleads=\box81
+\tabu@vleads=\box82
+\tabu@cellskip=\skip146
+)
+(C:\Users\thehy\AppData\Local\Programs\MiKTeX\tex/latex/threeparttable\threepar
+ttable.sty
+Package: threeparttable 2003/06/13  v 3.0
+\@tempboxb=\box83
+)
+(C:\Users\thehy\AppData\Local\Programs\MiKTeX\tex/latex/threeparttablex\threepa
+rttablex.sty
+Package: threeparttablex 2013/07/23 v0.3 by daleif
+(C:\Users\thehy\AppData\Local\Programs\MiKTeX\tex/latex/environ\environ.sty
+Package: environ 2014/05/04 v0.3 A new way to define environments
+
+(C:\Users\thehy\AppData\Local\Programs\MiKTeX\tex/latex/trimspaces\trimspaces.s
+ty
+Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
+))
+\TPTL@width=\skip147
+) (C:\Users\thehy\AppData\Local\Programs\MiKTeX\tex/latex/ulem\ulem.sty
+\UL@box=\box84
+\UL@hyphenbox=\box85
+\UL@skip=\skip148
+\UL@hook=\toks52
+\UL@height=\dimen312
+\UL@pe=\count334
+\UL@pixel=\dimen313
+\ULC@box=\box86
+Package: ulem 2019/11/18
+\ULdepth=\dimen314
+) (C:\Users\thehy\AppData\Local\Programs\MiKTeX\tex/latex/makecell\makecell.sty
+Package: makecell 2009/08/03 V0.1e Managing of Tab Column Heads and Cells
+\rotheadsize=\dimen315
+\c@nlinenum=\count335
+\TeXr@lab=\toks53
+) (C:\Users\thehy\AppData\Local\Programs\MiKTeX\tex/generic/babel\babel.sty
 Package: babel 2020/10/06 3.50 The Babel package
 (C:\Users\thehy\AppData\Local\Programs\MiKTeX\tex/generic/babel\babel.def
 File: babel.def 2020/10/06 3.50 Babel common definitions
-\babel@savecnt=\count323
-\U@D=\dimen290
+\babel@savecnt=\count336
+\U@D=\dimen316
 \l@babelnohyphens=\language79
 (C:\Users\thehy\AppData\Local\Programs\MiKTeX\tex/generic/babel\txtbabel.def)
 \bbl@readstream=\read3
 )
-\bbl@dirlevel=\count324
+\bbl@dirlevel=\count337
 *************************************
 * Local config file bblopts.cfg used
 *
@@ -903,56 +1013,56 @@ File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of
 (C:\Users\thehy\AppData\Local\Programs\MiKTeX\tex/latex/babel-polish\polish.ldf
 Language: polish 2005/03/31 v1.2l Polish support from the babel system
 Package babel Info: Making " an active character on input line 83.
-\pl@left=\dimen291
-\pl@down=\dimen292
-\pl@right=\dimen293
-\pl@temp=\dimen294
+\pl@left=\dimen317
+\pl@down=\dimen318
+\pl@right=\dimen319
+\pl@temp=\dimen320
 )
 (C:\Users\thehy\AppData\Local\Programs\MiKTeX\tex/latex/babel-polish\polish.ldf
 Language: polish 2005/03/31 v1.2l Polish support from the babel system
 ))
-\c@theorem=\count325
-\c@lemma=\count326
-\c@corollary=\count327
-\c@proposition=\count328
-\c@conjecture=\count329
-\c@definition=\count330
-\c@example=\count331
-\c@exercise=\count332
-\c@hypothesis=\count333
+\c@theorem=\count338
+\c@lemma=\count339
+\c@corollary=\count340
+\c@proposition=\count341
+\c@conjecture=\count342
+\c@definition=\count343
+\c@example=\count344
+\c@exercise=\count345
+\c@hypothesis=\count346
 (WPWW_licencjat.aux)
 \openout1 = `WPWW_licencjat.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 195.
-LaTeX Font Info:    ... okay on input line 195.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 195.
-LaTeX Font Info:    ... okay on input line 195.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 195.
-LaTeX Font Info:    ... okay on input line 195.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 195.
-LaTeX Font Info:    ... okay on input line 195.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 195.
-LaTeX Font Info:    ... okay on input line 195.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 195.
-LaTeX Font Info:    ... okay on input line 195.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 195.
-LaTeX Font Info:    ... okay on input line 195.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 195.
-LaTeX Font Info:    ... okay on input line 195.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 195.
-LaTeX Font Info:    ... okay on input line 195.
-LaTeX Info: Redefining \microtypecontext on input line 195.
-Package microtype Info: Applying patch `item' on input line 195.
-Package microtype Info: Applying patch `toc' on input line 195.
-Package microtype Info: Applying patch `eqnum' on input line 195.
-Package microtype Info: Applying patch `footnote' on input line 195.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 229.
+LaTeX Font Info:    ... okay on input line 229.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 229.
+LaTeX Font Info:    ... okay on input line 229.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 229.
+LaTeX Font Info:    ... okay on input line 229.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 229.
+LaTeX Font Info:    ... okay on input line 229.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 229.
+LaTeX Font Info:    ... okay on input line 229.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 229.
+LaTeX Font Info:    ... okay on input line 229.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 229.
+LaTeX Font Info:    ... okay on input line 229.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 229.
+LaTeX Font Info:    ... okay on input line 229.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 229.
+LaTeX Font Info:    ... okay on input line 229.
+LaTeX Info: Redefining \microtypecontext on input line 229.
+Package microtype Info: Applying patch `item' on input line 229.
+Package microtype Info: Applying patch `toc' on input line 229.
+Package microtype Info: Applying patch `eqnum' on input line 229.
+Package microtype Info: Applying patch `footnote' on input line 229.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using protrusion set `basicmath'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `alltext-nott'.
-LaTeX Info: Redefining \showhyphens on input line 195.
+LaTeX Info: Redefining \showhyphens on input line 229.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
@@ -963,17 +1073,17 @@ File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman
 (C:\Users\thehy\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
 ii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count334
-\scratchdimen=\dimen295
-\scratchbox=\box76
-\nofMPsegments=\count335
-\nofMParguments=\count336
-\everyMPshowfont=\toks48
-\MPscratchCnt=\count337
-\MPscratchDim=\dimen296
-\MPnumerator=\count338
-\makeMPintoPDFobject=\count339
-\everyMPtoPDFconversion=\toks49
+\scratchcounter=\count347
+\scratchdimen=\dimen321
+\scratchbox=\box87
+\nofMPsegments=\count348
+\nofMParguments=\count349
+\everyMPshowfont=\toks54
+\MPscratchCnt=\count350
+\MPscratchDim=\dimen322
+\MPnumerator=\count351
+\makeMPintoPDFobject=\count352
+\everyMPtoPDFconversion=\toks55
 )
 (C:\Users\thehy\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
 ase.sty
@@ -988,7 +1098,7 @@ Package grfext Info: Graphics extension search list:
 G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 504.
 )
-Package hyperref Info: Link coloring OFF on input line 195.
+Package hyperref Info: Link coloring OFF on input line 229.
 (C:\Users\thehy\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\nameref.sty
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
 (C:\Users\thehy\AppData\Local\Programs\MiKTeX\tex/latex/refcount\refcount.sty
@@ -998,11 +1108,11 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 lestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count340
+\c@section@level=\count353
 )
-LaTeX Info: Redefining \ref on input line 195.
-LaTeX Info: Redefining \pageref on input line 195.
-LaTeX Info: Redefining \nameref on input line 195.
+LaTeX Info: Redefining \ref on input line 229.
+LaTeX Info: Redefining \pageref on input line 229.
+LaTeX Info: Redefining \nameref on input line 229.
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -1086,19 +1196,19 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.307 \chapter*{Wstęp}\label{wstux119p}}
+l.341 \chapter*{Wstęp}\label{wstux119p}}
                                           [1
 
 ]
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 3
-18.
+54.
 (C:\Users\thehy\AppData\Local\Programs\MiKTeX\tex/latex/lm\ts1lmr.fd
 File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.330 ...zaleux17cnych-dla-danych-funkcjonalnych}}
+l.366 ...zaleux17cnych-dla-danych-funkcjonalnych}}
                                                    [2
 
 ]
@@ -1107,90 +1217,245 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.362 
+l.398 
        [3
 
 ]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 382.
+(mdframed)              on input line 401.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 409.
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
 Make it at least 14.49998pt.
 We now make it that large for the rest of the document.
 This may cause the page layout to be inconsistent, however.
 
-[4]
+[4] [5]
 Rozdzia\l  2.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 403.
-[5
+(mdframed)              on input line 472.
+Package mdframed Info: Not enough space on this page on input line 476.
+[6
 
-]
+pdfTeX warning (ext4): destination with the same identifier (name{equation.2.1.
+1}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  
+l.476 \end{defi}
+                pdfTeX warning (ext4): destination with the same identifier (na
+me{equation.2.1.1}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  
+l.476 \end{defi}
+                pdfTeX warning (ext4): destination with the same identifier (na
+me{equation.2.1.1}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  
+l.476 \end{defi}
+                ]
+Package mdframed Info: Not enough space on this page on input line 476.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 440.
-[6]
+(mdframed)              on input line 478.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 486.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 496.
+[7]
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 506.
+pdfTeX warning (ext4): destination with the same identifier (name{equation.2.1.
+1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.519 \begin{equation}
+                      \label{eqn:zb.as.cn}pdfTeX warning (ext4): destination wi
+th the same identifier (name{equation.2.1.1}) has been already used, duplicate 
+ignored
+<to be read again> 
+                   \relax 
+l.519 \begin{equation}
+                      \label{eqn:zb.as.cn}pdfTeX warning (ext4): destination wi
+th the same identifier (name{equation.2.1.1}) has been already used, duplicate 
+ignored
+<to be read again> 
+                   \relax 
+l.519 \begin{equation}
+                      \label{eqn:zb.as.cn}pdfTeX warning (ext4): destination wi
+th the same identifier (name{equation.2.1.1}) has been already used, duplicate 
+ignored
+<to be read again> 
+                   \relax 
+l.519 \begin{equation}
+                      \label{eqn:zb.as.cn}
+Overfull \hbox (46.64803pt too wide) detected at line 542
+[]
+ []
+
+[8]
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 563.
+[9]
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 586.
+[10]
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 657.
+[11] [12]
 Rozdzia\l  3.
-[7
+[13
 
 ]
-<WPWW_licencjat_files/figure-latex/wykresy-1.pdf, id=138, 469.755pt x 144.54pt>
+<WPWW_licencjat_files/figure-latex/wykresy-1.pdf, id=219, 469.755pt x 216.81pt>
 
 File: WPWW_licencjat_files/figure-latex/wykresy-1.pdf Graphic file (type pdf)
 <use WPWW_licencjat_files/figure-latex/wykresy-1.pdf>
 Package pdftex.def Info: WPWW_licencjat_files/figure-latex/wykresy-1.pdf  used 
-on input line 503.
-(pdftex.def)             Requested size: 443.57677pt x 136.48514pt.
-[8pdfTeX warning (ext4): destination with the same identifier (name{figure.3.1}
+on input line 747.
+(pdftex.def)             Requested size: 443.57677pt x 204.72772pt.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 777.
+[14pdfTeX warning (ext4): destination with the same identifier (name{figure.3.1
+}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  
+l.783 \end{defi}
+                 <./WPWW_licencjat_files/figure-latex/wykresy-1.pdf>]
+Package mdframed Info: Not enough space on this page on input line 783.
+<WPWW_licencjat_files/figure-latex/przykladowasymulacja-1.pdf, id=234, 469.755p
+t x 325.215pt>
+File: WPWW_licencjat_files/figure-latex/przykladowasymulacja-1.pdf Graphic file
+ (type pdf)
+<use WPWW_licencjat_files/figure-latex/przykladowasymulacja-1.pdf>
+Package pdftex.def Info: WPWW_licencjat_files/figure-latex/przykladowasymulacja
+-1.pdf  used on input line 791.
+(pdftex.def)             Requested size: 443.57677pt x 307.0916pt.
+[15pdfTeX warning (ext4): destination with the same identifier (name{figure.3.2
+}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  
+l.800 ...ntrola-bux142ux119du-pierwszego-rodzaju}}
+                                                   <./WPWW_licencjat_files/figu
+re-latex/przykladowasymulacja-1.pdf>]
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 804.
+[16]
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 852.
+[17pdfTeX warning (ext4): destination with the same identifier (name{table.3.1}
 ) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.542 ...aktyczny}\label{przykux142ad-praktyczny}}
-                                                   <./WPWW_licencjat_files/figu
-re-latex/wykresy-1.pdf>] [9]
+l.863 
+      ] [18pdfTeX warning (ext4): destination with the same identifier (name{ta
+ble.3.2}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  
+l.948 
+      pdfTeX warning (ext4): destination with the same identifier (name{table.3
+.3}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  
+l.948 
+      ] [19pdfTeX warning (ext4): destination with the same identifier (name{ta
+ble.3.4}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  
+l.954 ...aktyczny}\label{przykux142ad-praktyczny}}
+                                                  ]
 Rozdzia\l  4.
-[10
+<WPWW_licencjat_files/figure-latex/orteza-dane-1.pdf, id=282, 469.755pt x 325.2
+15pt>
+File: WPWW_licencjat_files/figure-latex/orteza-dane-1.pdf Graphic file (type pd
+f)
+<use WPWW_licencjat_files/figure-latex/orteza-dane-1.pdf>
+Package pdftex.def Info: WPWW_licencjat_files/figure-latex/orteza-dane-1.pdf  u
+sed on input line 967.
+(pdftex.def)             Requested size: 443.57677pt x 307.0916pt.
+[20
 
-] [11
+] [21pdfTeX warning (ext4): destination with the same identifier (name{figure.4
+.1}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  
+l.987 
+       <./WPWW_licencjat_files/figure-latex/orteza-dane-1.pdf>]
+<WPWW_licencjat_files/figure-latex/orteza-dane-short-1.pdf, id=302, 469.755pt x
+ 325.215pt>
+File: WPWW_licencjat_files/figure-latex/orteza-dane-short-1.pdf Graphic file (t
+ype pdf)
+<use WPWW_licencjat_files/figure-latex/orteza-dane-short-1.pdf>
+Package pdftex.def Info: WPWW_licencjat_files/figure-latex/orteza-dane-short-1.
+pdf  used on input line 994.
+(pdftex.def)             Requested size: 443.57677pt x 307.0916pt.
+[22pdfTeX warning (ext4): destination with the same identifier (name{table.4.1}
+) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  
+l.1012 
+       pdfTeX warning (ext4): destination with the same identifier (name{figure
+.4.2}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  
+l.1012 
+        <./WPWW_licencjat_files/figure-latex/orteza-dane-short-1.pdf>] [23pdfTe
+X warning (ext4): destination with the same identifier (name{table.4.2}) has be
+en already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  
+l.1016 ...pter*{Podsumowanie}\label{podsumowanie}}
+                                                  ] [24
 
-] [12
+] [25] [26
 
 ] (WPWW_licencjat.aux) ) 
 Here is how much of TeX's memory you used:
- 25677 strings out of 480236
- 459687 string characters out of 2880558
- 790731 words of memory out of 3000000
- 41534 multiletter control sequences out of 15000+200000
- 602244 words of font info for 134 fonts, out of 3000000 for 9000
+ 27666 strings out of 480236
+ 491205 string characters out of 2880558
+ 852779 words of memory out of 3000000
+ 43329 multiletter control sequences out of 15000+200000
+ 612116 words of font info for 175 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 94i,12n,107p,1013b,1063s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 94i,13n,107p,1550b,1127s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/thehy/AppData/Local/Programs/MiKTeX/fonts/enc
 /dvips/lm/lm-rm.enc}{C:/Users/thehy/AppData/Local/Programs/MiKTeX/fonts/enc/dvi
+ps/lm/lm-mathit.enc}{C:/Users/thehy/AppData/Local/Programs/MiKTeX/fonts/enc/dvi
+ps/lm/lm-mathsy.enc}{C:/Users/thehy/AppData/Local/Programs/MiKTeX/fonts/enc/dvi
+ps/lm/lm-mathex.enc}{C:/Users/thehy/AppData/Local/Programs/MiKTeX/fonts/enc/dvi
 ps/lm/lm-ec.enc}{C:/Users/thehy/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/l
-m/lm-mathsy.enc}{C:/Users/thehy/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/l
-m/lm-mathex.enc}{C:/Users/thehy/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/l
-m/lm-mathit.enc}{C:/Users/thehy/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/l
 m/lm-ts1.enc}<C:/Users/thehy/AppData/Local/Programs/MiKTeX/fonts/type1/public/l
 m/lmbx10.pfb><C:/Users/thehy/AppData/Local/Programs/MiKTeX/fonts/type1/public/l
 m/lmbx12.pfb><C:/Users/thehy/AppData/Local/Programs/MiKTeX/fonts/type1/public/l
 m/lmbxi10.pfb><C:/Users/thehy/AppData/Local/Programs/MiKTeX/fonts/type1/public/
 lm/lmex10.pfb><C:/Users/thehy/AppData/Local/Programs/MiKTeX/fonts/type1/public/
 lm/lmmi12.pfb><C:/Users/thehy/AppData/Local/Programs/MiKTeX/fonts/type1/public/
-lm/lmmi8.pfb><C:/Users/thehy/AppData/Local/Programs/MiKTeX/fonts/type1/public/l
-m/lmr12.pfb><C:/Users/thehy/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm
-/lmr17.pfb><C:/Users/thehy/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/
-lmr6.pfb><C:/Users/thehy/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lm
-r8.pfb><C:/Users/thehy/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri
-12.pfb><C:/Users/thehy/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy
-10.pfb><C:/Users/thehy/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy
-8.pfb><C:/Users/thehy/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts
-/symbols/msam10.pfb><C:/Users/thehy/AppData/Local/Programs/MiKTeX/fonts/type1/p
-ublic/amsfonts/symbols/msbm10.pfb>
-Output written on WPWW_licencjat.pdf (15 pages, 309559 bytes).
+lm/lmmi6.pfb><C:/Users/thehy/AppData/Local/Programs/MiKTeX/fonts/type1/public/l
+m/lmmi8.pfb><C:/Users/thehy/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm
+/lmr12.pfb><C:/Users/thehy/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/
+lmr17.pfb><C:/Users/thehy/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/l
+mr6.pfb><C:/Users/thehy/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr
+8.pfb><C:/Users/thehy/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri1
+2.pfb><C:/Users/thehy/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy1
+0.pfb><C:/Users/thehy/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy8
+.pfb><C:/Users/thehy/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/
+symbols/msam10.pfb><C:/Users/thehy/AppData/Local/Programs/MiKTeX/fonts/type1/pu
+blic/amsfonts/symbols/msbm10.pfb>
+Output written on WPWW_licencjat.pdf (29 pages, 440514 bytes).
 PDF statistics:
- 296 PDF objects out of 1000 (max. 8388607)
- 62 named destinations out of 1000 (max. 500000)
- 39058 words of extra memory for PDF output out of 42996 (max. 10000000)
+ 470 PDF objects out of 1000 (max. 8388607)
+ 116 named destinations out of 1000 (max. 500000)
+ 43169 words of extra memory for PDF output out of 51595 (max. 10000000)
 

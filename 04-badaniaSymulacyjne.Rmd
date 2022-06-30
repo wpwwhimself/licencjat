@@ -5,6 +5,13 @@
 \renewcommand{\headrulewidth}{0.5pt}
 ```
 
+```{r zaczynam erować, include=F}
+library(ggplot2); library(dplyr); library(latex2exp)
+library(knitr); library(kableExtra)
+opts_chunk$set(fig.pos = "H", warning = F, echo = F, message = F)
+source("symulacje_parametry.R")
+```
+
 W celu porównania rozmiarów i mocy testów opisanych w niniejszej pracy, przeprowadza się badania symulacyjne. Wszystkie poszczególne metody będą oznaczone w następujący sposób:
 
 - **test A** -- test asymptotyczny,
@@ -12,18 +19,18 @@ W celu porównania rozmiarów i mocy testów opisanych w niniejszej pracy, przep
 - **test P** -- test permutacyjny,
 - **test BT** -- test oparty o przybliżenie Boxa.
 
-Wszystkie symulacje zostały przeprowadzone przy pomocy środowiska R.
+Wszystkie symulacje zostały przeprowadzone przy pomocy środowiska R \cite{Rcoreteam}.
 
 ## Opis eksperymentów
 
-Zgodnie z eksperymentami przeprowadzonymi w \cite{MCC} oraz \cite{Smaga} dla testów A, B, P i BT, generuje się serię funkcji losowych $X_i(t)$ postaci
+Zgodnie z eksperymentami przeprowadzonymi w \cite{MCC} oraz \cite{Smaga} dla testów A, B, P i BT, generuje się realizacje procesów losowych $X_i(t)$ postaci
 \begin{equation}\label{eqn:sim_model}
 X_i(t) = \begin{cases}
 m_1(t) + \epsilon_{i1}(t), & t\in[0,1] \\
 m_2(t) + \epsilon_{i2}(t), & t\in[1,2]
-\end{cases}, \quad i\in 1,...,n,
+\end{cases}, \quad i\in 1,2,\dots,n,
 \end{equation}
-dla funkcji $m_j(t)$ oraz $\epsilon_{ij}(t)$ opisanych poniżej. Rozpatrywany będzie rozmiar próby $n = 25$.
+dla funkcji $m_j(t)$ oraz $\epsilon_{ij}(t)$ opisanych poniżej. Rozpatrywany będzie rozmiar próby $n = `r paste(n, collapse = ', ')`$.
 
 Rozpatrywane będą następujące funkcje:
 
@@ -38,17 +45,18 @@ m_{3,1}(t) &= \sqrt{5}t^{\frac{2}{3}}\exp(-7t)I_{[0,1]}(t) &\quad
 m_{3,2}(t) &= (\sin(2\pi t^{\frac{9}{5}}))^3I_{[0,1]}(t)
 \end{align*}
 
-```{r wykresy, fig.cap="Wykresy funkcji $m_{i,j}(t), t\\in[0,1]$, wykorzystanych do przeprowadzenia symulacji", message=F, echo=F, warning=F, fig.height=2}
-library(ggplot2); library(dplyr); library(latex2exp)
+Wykresy powyższych funkcji są przedstawione na Rysunku \@ref(fig:wykresy).
+
+```{r wykresy, fig.cap="Wykresy funkcji $m_{i,j}(t), t\\in[0,1]$, wykorzystanych do przeprowadzenia symulacji", fig.height=3}
 #wykresy chikwadratowe
 ggplot(data.frame(x = 0:1), aes(x)) +
-  theme_minimal() +
-  geom_function(fun = function(t){ sqrt(6*t/pi)*exp(-6*t)}, aes(color = 'a')) +
-  geom_function(fun = function(t){ sqrt(13*t/pi/2)*exp(-13*t/2)}, aes(color = 'b')) +
-  geom_function(fun = function(t){ sqrt(11*t/pi/2)*exp(-11*t/2)}, aes(color = 'c')) +
-  geom_function(fun = function(t){ sqrt(5)*t^(2/3)*exp(-7*t)}, aes(color = 'd')) +
+  theme_minimal() + theme(legend.position = "bottom") +
+  geom_function(fun = m_01, aes(color = 'a')) +
+  geom_function(fun = m_11, aes(color = 'b')) +
+  geom_function(fun = m_21, aes(color = 'c')) +
+  geom_function(fun = m_31, aes(color = 'd')) +
   xlab("t") + ylab("") + 
-  scale_color_manual(name = "funkcje",
+  scale_color_manual(name = "",
                      values = c('a'='black', 'b'='red', 'c'='green', 'd'='blue'),
                      labels = c(TeX("$m_{0,1}(t)$"),
                                 TeX("$m_{1,1}(t)$"),
@@ -56,13 +64,13 @@ ggplot(data.frame(x = 0:1), aes(x)) +
                                 TeX("$m_{3,1}(t)$"))) -> plot1
 #wykresy sinusowe
 ggplot(data.frame(x = 0:1), aes(x)) +
-  theme_minimal() +
-  geom_function(fun = function(t){ sin(2*pi*t^2)^5 }, aes(color = 'a')) +
-  geom_function(fun = function(t){ sin(2*pi*t^2)^3 }, aes(color = 'b')) +
-  geom_function(fun = function(t){ sin(2*pi*t^2)^7 }, aes(color = 'c')) +
-  geom_function(fun = function(t){ sin(2*pi*t^(9/5))^3 }, aes(color = 'd')) +
+  theme_minimal() + theme(legend.position = "bottom") +
+  geom_function(fun = m_02, aes(color = 'a')) +
+  geom_function(fun = m_12, aes(color = 'b')) +
+  geom_function(fun = m_22, aes(color = 'c')) +
+  geom_function(fun = m_32, aes(color = 'd')) +
   xlab("t") + ylab("") + 
-  scale_color_manual(name = "funkcje",
+  scale_color_manual(name = "",
                      values = c('a'='black', 'b'='red', 'c'='green', 'd'='blue'),
                      labels = c(TeX("$m_{0,2}(t)$"),
                                 TeX("$m_{1,2}(t)$"),
@@ -72,26 +80,170 @@ ggplot(data.frame(x = 0:1), aes(x)) +
 gridExtra::grid.arrange(plot1, plot2, nrow = 1)
 ```
 
-Skonstruowanych zostanie 8 różnych modeli spełniających równanie modelu \ref{eqn:sim_model}:
+Skonstruowanych zostanie 8 różnych modeli spełniających równanie modelu \eqref{eqn:sim_model}:
 
 - dla **modeli M0-M3** przyjmuje się $m_1 = m_{0,1}, \quad m_2 = m_{j,1}, j = 0,1,2,3$
 - dla **modeli M4-M7** przyjmuje się $m_1 = m_{0,2}, \quad m_2 = m_{j,2}, j = 0,1,2,3$
-\AAA{czy to znaczy, że M0 i M4 porównuje się dwie takie same funkcje, które różnią się tylko szumem?}
 
-Występujące w równaniu \ref{eqn:sim_model} funkcje losowe $\epsilon_{i1}, \epsilon_{i2}$ konstruuje się na bazie rozkładu normalnego. \AAA{co to są Brownian Bridges?}. Rozpatrywane będą trzy rodzaje funkcji losowych, dalej nazywanych *błędami*:
+Warto zauważyć, że dla modeli M0 oraz M4 hipoteza zerowa jest prawdziwa.
 
-- **normalny**: $\epsilon_{i1}(t) := \xi B_{i1}(t), \quad \epsilon_{i2}(t) := \rho\epsilon_{i1}(t) + \xi\sqrt{1-\rho^2}B_{i2}(t)$,
+Występujące w równaniu \eqref{eqn:sim_model} procesy $\epsilon_{i1}, \epsilon_{i2}$ konstruuje się na bazie procesów gaussowskich. Rozpatrywane będą trzy rodzaje procesów losowych, dalej nazywanych *błędami*:
+
+- **normalny**: $\epsilon_{i1}(t) := \xi B_{i1}(t), \quad \epsilon_{i2}(t) := \rho\epsilon_{i1}(t) + \xi\sqrt{1-\rho^2}B_{i2}(t)$ ($\rho = `r paste(rho, collapse = ', ')`$),
 - **lognormalny**: $\epsilon_{ij}(t) := \exp(\epsilon_{ij}(t)), j=1,2$,
-- **mieszany**: $\epsilon_{i1}(t) := \epsilon_{i1}(t), \quad \epsilon_{i2}(t) := \exp(\epsilon_{i2}(t))$
+- **mieszany**: $\epsilon_{i1}(t) := \epsilon_{i1}(t), \quad \epsilon_{i2}(t) := \exp(\epsilon_{i2}(t))$,
 
-Jako że obliczenie wartości danych funkcji jest możliwe jedynie w dyskretnej liczbie punktów, na potrzeby symulacji wartości procesów $X_i(t), X_i(t+1)$ wygenerowane zostały dla $I=26,101,251$ punktów $t_r\in[0,1], r\in 1,...,I$, dzielących odcinek $[0,1]$ na $I$ równych fragmentów.
+gdzie $B_{ij}$ są standardowymi mostami Browna, a $\xi = \begin{cases}0.05, & \text{modele }M0-M3\\ 0.5, & \text{modele }M4-M7\end{cases}$.
 
-Dokonano obliczeń **rozmiarów** i **mocy** empirycznych rozważanych testów na poziomie istotności $\alpha = 5\%$, na podstawie 1000 replikacji. Wyniki przedstawiono w tabelach zaprezentowanych w dalszej części pracy.
-\AAA{definicje tychże}
+\begin{defi}
+\textbf{Mostem Browna} nazywa się proces gaussowski $X(t), t\in [0,1]$ o~ciągłych trajektoriach takich, że
+$$
+\doubleE X = 0 \quad\land\quad
+\Cov(X(s), X(t)) = s(1-t), \quad s\le t
+$$
+\end{defi}
+
+Jako że obliczenie wartości danych funkcji jest możliwe jedynie w dyskretnej liczbie punktów, na potrzeby symulacji wartości procesów $X_i(t), X_i(t+1)$ wygenerowane zostały dla $I$ punktów ($I=`r paste(I, collapse = ', ')`$): $t_r\in[0,1], r\in 1,2,\dots,I$, dzielących odcinek $[0,1]$ na $I$ równych fragmentów.
+
+Jako przykład danych, na podstawie których przeprowadzone będą testy, na Rysunku \@ref(fig:przykladowasymulacja) pokazano wykresy procesów jednego z rozpatrywanych modeli.
+
+```{r przykladowasymulacja, fig.cap="Symulacja procesów modelu M6 przy parametrach: $\\rho = 0, n = 35, I = 26$, błąd mieszany. Kolorami zaznaczono różne replikacje eksperymentu"}
+modelmaker("M6", m_02(time), m_22(time), xi["M4to7"],
+           errortype = "M")[[1]] %>%
+  t() %>% as.data.frame() %>%
+  mutate(t = 1:(I*2)) %>% 
+  tidyr::pivot_longer(!t, names_to = "replikacja") %>%
+  ggplot(aes(t, value, color = replikacja)) + theme_minimal() +
+  geom_line() +
+  theme(legend.position = "none") + ylab("X(t)")
+```
+
+Dokonano obliczeń **rozmiarów** i **mocy** empirycznych rozważanych testów na poziomie istotności $\alpha = `r alpha*100`\%$, na podstawie 1000 replikacji. Wyniki przedstawiono w tabelach zaprezentowanych w dalszej części pracy.
+
+**Uwaga:** ze względu na ograniczenia mocy obliczeniowej dostępnej autorowi, rozważane symulacje nie obejmują wszystkich kombinacji wartości parametrów, jakie zostały wykorzystane w pracy \cite{Smaga}, tj. $n = `r paste(orig_n, collapse = ', ')`; I = `r paste(orig_I, collapse = ', ')`; \rho = `r paste(orig_rho, collapse = ', ')`$. Bardziej rozbudowane wyniki badań można znaleźć tamże.
 
 ## Kontrola błędu pierwszego rodzaju
 
+W tym podrozdziale podane zostaną empiryczne rozmiary testów zastosowanych do symulowanych modeli.
 
+\begin{defi}
+Niech $\mathbf{X}$ będzie próbą, a $B$ obszarem krytycznym testu statystycznego.\\
+\textbf{Rozmiarem} testu statystycznego jest prawdopodobieństwo nieprawidłowego odrzucenia hipotezy zerowej, tj. błędu I rodzaju:
+\[
+\doubleP_0(\mathbf{X}\in B).
+\]
+\end{defi}
+
+Badanie rozmiaru testu statystycznego pozwala określić, czy test dobrze kontroluje poziom błędu pierwszego rodzaju lub też czy test może być uznawany za *konserwatywny* lub *liberalny*. Stanowi on dosłownie błąd I rodzaju, zatem większy rozmiar testu mówi, że będzie on statystycznie częściej odrzucał hipotezę zerową. Wówczas może być on nazywany liberalnym. W odwrotnym przypadku, gdy rozmiar testu jest niewielki, oznacza to stosunkowo rzadkie odrzucenie hipotezy zerowej -- test jest wtedy nazywany konserwatywnym. Podczas konstruowania testów statystycznych dąży się do tego, by rozmiar testu był teoretycznie równy jego poziomowi istotności. Na podstawie tegoż można obliczyć przedział ufności orzekający o liberalności testu.
+
+Ponieważ rozmiar testu statystycznego jest prawdopodobieństwem przy założeniu hipotezy zerowej, rozpatrywane w tym przypadku są modele M0 oraz M4, gdzie z założenia funkcje średnie są równe. Wyniki badań przedstawiono w Tabeli \@ref(tab:M04-dane). Kolumny „A”, „B”, „P” oraz „BT” odpowiadają wynikom doświadczeń przeprowadzonym dla odpowiednich testów, opisanych na początku tego rozdziału.
+
+```{r M04-dane}
+model1 <- "M0"; model2 <- "M4"; rozm.a.nie.moc <- T
+outputtable(model1, model2) %>%
+  mutate(across(-1, ~cell_spec(.x, "latex", bold = ifelse(.x > 6.4 | .x < 3.6, T, F)))) %>%
+  kable(booktabs = T,
+        caption = paste("Empiryczne ",
+                        ifelse(rozm.a.nie.moc, "rozmiary", "moce"),
+                        " testów (w procentach) dla modeli ",
+                        model1, " oraz ", model2,
+                        sep = ""),
+        col.names = c("błąd", rep(c("A","B","P","BT"), 2)),
+        escape = F) %>%
+  kable_styling(latex_options = "HOLD_position") %>%
+  pack_rows("$\\rho = 0$", 1, 3, escape = F) %>%
+  pack_rows("$\\rho = 0,25$", 4, 6, escape = F) %>%
+  pack_rows("$\\rho = 0,5$", 7, 9, escape = F) %>%
+  add_header_above(c(" ",
+                     setNames(4, paste("Model", model1)),
+                     setNames(4, paste("Model", model2))))
+```
+
+```{r conf.int}
+beta <- alpha; obs <- 1000
+size.ci <-
+  c(alpha-qnorm(1-beta/2)*sqrt(alpha*(1-alpha)/obs),
+    alpha+qnorm(1-beta/2)*sqrt(alpha*(1-alpha)/obs)) %>%
+  scales::percent(suffix = "\\%")
+```
+
+Empiryczne rozmiary testów powinny mieścić się w przedziale $[`r paste(size.ci, collapse = ", ")`]$ z prawdopodobieństwem $`r 100*(1-alpha)`\%$ \cite{Duchesne, Smaga}. Zdecydowana większość wartości przedstawionych w tabeli mieści się w tym przedziale (wartości wykraczające poza przedział zostały pogrubione), co świadczy o satysfakcjonującym działaniu rozpatrywanych testów.
+
+Test bootstrapowy B jest najbardziej liberalny spośród wszystkich testów, na co wskazują największe rozmiary testu. Niemniej wszystkie testy zachowują się w pożądany sposób, poprawnie kontrolując poziom błędu I rodzaju, co uzasadnia ich zastosowanie do celów analizy danych funkcjonalnych.
 
 ## Moc testu
 
+\begin{defi}
+Niech $\mathbf{X}$ będzie próbą, a $B$ obszarem krytycznym testu statystycznego.\\
+\textbf{Mocą} testu statystycznego jest prawdopodobieństwo poprawnego odrzucenia hipotezy zerowej, tj. zdarzenia przeciwnego do błędu II rodzaju:
+\[
+\doubleP_1(\mathbf{X}\in B).
+\]
+\end{defi}
+
+Podczas gdy rozmiar testu opisuje prawdopodobieństwo popełnienia błędu przez test statystyczny, moc testu mówi o jego poprawności. Duża moc testu świadczy o tym, że odrzucenie hipotezy zerowej -- jeśli nastąpi -- jest uzasadnione. Zgodnie z ideą weryfikacji hipotez, dąży się do minimalizacji błędu II rodzaju, a w konsekwencji do maksymalizacji mocy testów statystycznych.
+
+Analogicznie do poprzedniego przypadku, jako że moc testu statystycznego jest prawdopodobieństwem przy założeniu hipotezy alternatywnej, rozpatrywać w tym przypadku można wszystkie pozostałe modele, gdzie z założenia wyniki dwóch prób zależnych są od siebie istotnie różne. Wyniki badań przedstawiono w kolejnych tabelach.
+
+```{r M12-dane}
+#fun fact -- spakowanie tworzenia kable'a do funkcji psuje polskie znaki
+model1 <- "M1"; model2 <- "M2"; rozm.a.nie.moc <- F
+outputtable(model1, model2) %>%
+  kable(booktabs = T,
+        caption = paste("Empiryczne ",
+                        ifelse(rozm.a.nie.moc, "rozmiary", "moce"),
+                        " testów (w procentach) dla modeli ",
+                        model1, " oraz ", model2,
+                        sep = ""),
+        col.names = c("błąd", rep(c("A","B","P","BT"), 2)),
+        escape = F) %>%
+  kable_styling(latex_options = "HOLD_position") %>%
+  pack_rows("$\\rho = 0$", 1, 3, escape = F) %>%
+  pack_rows("$\\rho = 0,25$", 4, 6, escape = F) %>%
+  pack_rows("$\\rho = 0,5$", 7, 9, escape = F) %>%
+  add_header_above(c(" ",
+                     setNames(4, paste("Model", model1)),
+                     setNames(4, paste("Model", model2))))
+```
+```{r M35-dane}
+model1 <- "M3"; model2 <- "M5"; rozm.a.nie.moc <- F
+outputtable(model1, model2) %>%
+  kable(booktabs = T,
+        caption = paste("Empiryczne ",
+                        ifelse(rozm.a.nie.moc, "rozmiary", "moce"),
+                        " testów (w procentach) dla modeli ",
+                        model1, " oraz ", model2,
+                        sep = ""),
+        col.names = c("błąd", rep(c("A","B","P","BT"), 2)),
+        escape = F) %>%
+  kable_styling(latex_options = "HOLD_position") %>%
+  pack_rows("$\\rho = 0$", 1, 3, escape = F) %>%
+  pack_rows("$\\rho = 0,25$", 4, 6, escape = F) %>%
+  pack_rows("$\\rho = 0,5$", 7, 9, escape = F) %>%
+  add_header_above(c(" ",
+                     setNames(4, paste("Model", model1)),
+                     setNames(4, paste("Model", model2))))
+```
+```{r M67-dane}
+model1 <- "M6"; model2 <- "M7"; rozm.a.nie.moc <- F
+outputtable(model1, model2) %>%
+  kable(booktabs = T,
+        caption = paste("Empiryczne ",
+                        ifelse(rozm.a.nie.moc, "rozmiary", "moce"),
+                        " testów (w procentach) dla modeli ",
+                        model1, " oraz ", model2,
+                        sep = ""),
+        col.names = c("błąd", rep(c("A","B","P","BT"), 2)),
+        escape = F) %>%
+  kable_styling(latex_options = "HOLD_position") %>%
+  pack_rows("$\\rho = 0$", 1, 3, escape = F) %>%
+  pack_rows("$\\rho = 0,25$", 4, 6, escape = F) %>%
+  pack_rows("$\\rho = 0,5$", 7, 9, escape = F) %>%
+  add_header_above(c(" ",
+                     setNames(4, paste("Model", model1)),
+                     setNames(4, paste("Model", model2))))
+```
+
+Symulacje wskazują na rozsądną moc rozważanych testów, szczególnie rozpatrując błąd lognormalny. Na uwagę zasługuje model M7, w którym we wszystkich przypadkach testy osiągają stuprocentową moc. Ponadto, wszystkie testy mają bardzo podobną moc. Znaczy to, że wykorzystanie każdego z przedstawionych w tej pracy testów statystycznych jest uzasadnione do badania zależności między dwoma próbami zależnymi danych funkcjonalnych.
+
+W pracy \cite{Smaga} porusza się również problem złożoności obliczeniowej każdego z testów. Badania przeprowadzono, modyfikując parametry $n$ oraz $I$ ($n=100,200,\ldots,1000; I = 500, 1000$) i mierząc czas wykonania procedur obliczających $p$-wartości rozpatrywanych testów statystycznych. Zgodnie z Rysunkiem 3 w tejże pracy można zauważyć, że testy asymptotyczny A oraz oparty o przybliżenie Boxa BT wykonywane są zdecydowanie szybciej w przypadku większej ilości danych oraz porównywalnie szybko w przypadku mniejszych zbiorów danych. Wyniki te uzasadniają stosowanie testów A oraz BT w&nbsp;przypadku dużej liczby replikacji -- dla przykładu test BT wykonuje się najdłużej w&nbsp;kilka sekund.

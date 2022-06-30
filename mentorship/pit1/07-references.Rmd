@@ -1,0 +1,20 @@
+```{=latex}
+\begin{thebibliography}{99}
+\addcontentsline{toc}{chapter}{Bibliografia}
+\fancyhead[LO]{\textbf{\small{Bibliografia}}}
+\renewcommand{\headrulewidth}{0.5pt}
+
+\bibitem{HK2012} Horv\'ath, L., Kokoszka, P. (2012). Inference for Functional Data with Applications, Springer. 
+
+\bibitem{MCC} Martinez-Camblor, P., Corral, N. (2011). Repeated measures analysis for functional data. Computational Statistics \& Data Analysis 55, 3244-3256.
+
+\bibitem{Ramsay} Ramsay, J.O., Silverman, B.W. (2005). Functional Data Analysis, 2nd edition, Springer, New York.
+
+\bibitem{Rcoreteam} R Core Team (2022). R: A language and environment for statistical computing. R Foundation for Statistical Computing, Vienna, Austria. URL https://www.R-project.org/.
+
+\bibitem{Smaga} Smaga, Ł. (2019). Repeated measures analysis for functional data using Box-type approximation-with applications. REVSTAT 17, 523-549.
+
+\bibitem{Zhang} Zhang, J.T. (2013). Analysis of Variance for Functional Data. Chapman and Hall, London.
+
+\end{thebibliography}
+```

@@ -64,7 +64,7 @@ Nr albumu: 456421
 \vspace{20pt}
 
 \begin{flushright}
-Poznań, dnia ??? r.
+Poznań, dnia 27.05.2022 r.
 \end{flushright}
 
 \vspace{40pt}
@@ -82,7 +82,7 @@ Zdając sobie sprawę z odpowiedzialności prawnej, że przypisanie sobie w prac
 %\vspace{30pt}
 
 \begin{flushright}
-.................................................. 
+Wojciech Przybyła 
 \end{flushright}
 ```
 
@@ -100,9 +100,9 @@ Zdając sobie sprawę z odpowiedzialności prawnej, że przypisanie sobie w prac
 \vspace{30pt}
 ```
 
-`r lorem::ipsum()`
+W pracy podjęta jest tematyka analizy powtarzanych pomiarów, które są danymi funkcjonalnymi. Omówione są różne testy statystyczne dla problemu dwóch prób zależnych, oparte o statystykę testową będącą pewną całką z funkcji średnich z próby. W celu przybliżenia rozkładu tej statystyki testowej przy prawdziwości hipotezy zerowej wykorzystano cztery metody: asymptotyczna, bootstrapowa, permutatycyjna i procedura oparta o przybliżenie typu Boxa. Wykazano własności teoretyczne oraz, z pomocą badań symulacyjnych, własności skończenie próbkowe testów, takie jak rozmiar i moc. Zaprezentowano również praktyczny przykład zastosowania omawianych metod.
 
-**Słowa kluczowe**: słowa, kluczowe, oddzielone, przecinkami, kilka, ich, będzie
+**Słowa kluczowe**: analiza powtarzanych pomiarów, dane funkcjonalne, metoda bootstrapowa, metoda permutacyjna, moc testu, przybliżenie Boxa, rozmiar testu, testy statystyczne
 
 ```{=latex}
 \vspace{40pt}
@@ -114,9 +114,9 @@ Zdając sobie sprawę z odpowiedzialności prawnej, że przypisanie sobie w prac
 \vspace{30pt}
 ```
 
-`r lorem::ipsum()`
+In the paper, the subject of analysis of repeated measures consisting of functional data is discussed. Various statistical tests for paired two-sample problem are described, which base on the test statistic being an integral of sample mean functions. In order to&nbsp;approximate the distribution of this test statistic under the null hypothesis, four methods are used: asymptotic, bootstrap, permutation and a procedure based on the Box-type approximation. Theoretical and, utilising simulated data, finite-sample properties of&nbsp;these tests, like size and power, are shown. Additionally, a practical example of using discussed methods is presented.
 
-**Key words**: english, keywords, there will be, a few, of these, in here
+**Key words**: Box-approximation, bootstrap method, functional data, permutation method, power of test, repeated measurements analysis, size of test, statistical test
 
 \newpage
 

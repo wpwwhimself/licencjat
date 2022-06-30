@@ -7,44 +7,230 @@
 
 ## Test asymptotyczny
 
-W podejściu asymptotycznym przedstawionym w \cite{MCC} formułuje się następujące twierdzenie:
-\begin{tw}
-Niech \(X_i(t) = m(t)+\epsilon_i(t), 1\le i\le n\) będą $n$ niezależnymi trajektoriami pochodzących z procesów $L^2$ definiowanych na przedziale $[0,2]$, z wartością oczekiwaną  $\bigwedge_{t\in[0,2]}\doubleE[\epsilon_i(t)]=0$ oraz funkcją kowariancji $\doubleC(s,t)$.
-Wówczas przy prawdziwości hipotezy zerowej $\bigwedge_{t\in[0,1]}m(t)=m(1+t)$ zachodzi
+Niech $L^2[a,b], a,b\in\doubleR, a<b$ oznacza przestrzeń Hilberta funkcji całkowalnych z&nbsp;kwadratem określonych na przedziale $[a,b]$, tj. $$f\in L^2[a,b] \wtw \int_a^bf^2(x)\,dx<\oo.$$
+
+Niech $$X_i(t) = m(t)+\epsilon_i(t), 1 \le i \le n$$ będą $n$ niezależnymi procesami losowymi należącymi do przestrzeni $L^2[0,2]$ definiowanymi na przedziale $[0,2]$, gdzie $m$ jest daną funkcją, a $\epsilon_i$ jest procesem losowym o&nbsp;wartości oczekiwanej równej zero oraz funkcji kowariancji $\doubleC(s,t)$.
+
+W dalszym ciągu pracy wykorzystywane będą poniższe założenia:
+
+\begin{equation}\tag{A1}\label{eqn:a1}
+\tr(\doubleC) \coloneqq \int_0^2\doubleC(t,t)\,dt < \oo
+\end{equation}
+
+\begin{equation}\tag{A2}\label{eqn:a2}
+v_1(t) \coloneqq X_1(t) - m(t)
+\text{ spełnia własność }
+\doubleE\norm{v_1}^4 = \doubleE \nz{\int_0^2 v^2_1(t)\,dt}^2 <\oo
+\end{equation}
+
+\begin{equation}\tag{A3}\label{eqn:a3}
+\bigwedge_{t\in[0,2]}\nz{ \doubleC(t,t) >0\quad\land\quad \max_{t\in [0,2]} \doubleC(t,t) <\oo}
+\end{equation}
+
+\begin{equation}\tag{A4}\label{eqn:a4}
+\bigwedge_{(s,t)\in [0,2]^2} \doubleE(v_1^2(s)v_1^2(t)) < C < \oo, \quad C\text{ - const.}
+\end{equation}
+
+\begin{defi}
+Różną od zera funkcję $f$ nazywamy \textbf{wektorem własnym (funkcją własną)} operatora liniowego $D$, jeżeli
+$$ Df = \lambda f $$
+gdzie $\lambda$ nazywamy \textbf{wartością własną} operatora $D$.
+\end{defi}
+
+\begin{defi}
+Niech $X_i, i=1,\ldots,n$ będą niezależnymi zmiennymi losowymi o~rozkładzie normalnym standaryzowanym $N(0,1)$.\\
+Mówi się wówczas, że rozkład zmiennej losowej
+$$ Y = \sum_{i=1}^n X_i^2 $$
+jest \textbf{rozkładem $\chi^2$ z $n$ stopniami swobody} i zapisuje się jako $Y\sim \chi^2(n)$.\\
+Jeśli $X_i$ będą niezależnymi zmiennymi losowymi o rozkładzie $N(\mu, 1), \mu \ne 0$, wówczas mówi się o \textbf{niecentralnym rozkładzie $\chi^2$}.
+\end{defi}
+
+\begin{defi}
+Wyróżnia się m.in. następujące rodzaje \textbf{zbieżności} ciągu zmiennych losowych $X_n$ do zmiennej losowej $X$:
+\begin{itemize}
+\item \textbf{według rozkładu}: $$X_n \xto{d} X \wtw \lim_{n\to\oo} F_{X_n}(x) = F_X(x)$$ dla każdego punktu nieciągłości $x$ dystrybuanty $F_X$
+\item \textbf{według prawdopodobieństwa}: $$X_n \xto{P} X \wtw \bigwedge_{\epsilon > 0} \lim_{n\to\oo} \doubleP(|X_n -X| > \epsilon) = 0$$
+\end{itemize}
+\end{defi}
+
+W podejściu asymptotycznym przedstawionym w pracy \cite{MCC} formułuje się następujące twierdzenie:
+\begin{tw}\label{tw:asympt}
+Przy założeniach A1 oraz A3, przy prawdziwości hipotezy zerowej $H_0: \bigwedge_{t\in[0,1]}m(t)=m(1+t)$ zachodzi
 \[
-\scriptC_n \xto{d}n\sum_{k\in\doubleN} \lambda_kA_k,
+\scriptC_n \xto{d} \scriptC^* \coloneqq \sum_{k\in\doubleN} \lambda_kA_k,
 \]
-gdzie $A_k$ \AAA{czym to wszystko jest? Central $\chi^2$ distribution?}
+gdzie $A_k$ są niezależnymi zmiennymi losowymi o centralnym rozkładzie $\chi^2(1)$, a~$\lambda_1,\lambda_2,\dots$ są wartościami własnymi funkcji kowariancji $$\doubleK(s,t)=\doubleC(s,t)-\doubleC(s,t+1)-\doubleC(s+1,t)+\doubleC(s+1,t+1),\ s,t\in[0,1]$$ takimi, że $\lambda_1\ge \lambda_2\ge \dots\ge 0$ i $\sum_{i=1}^\infty\lambda_i^2<\infty$.
 \end{tw}
 \begin{proof}
+Założenie A1 gwarantuje słabą zbieżność (tj. wg rozkładu) funkcji średniej próby do procesu gaussowskiego. Na jego podstawie, jak podaje \cite{Zhang}:
+$$ \doubleE\norm{X_1}^2 = \norm{m}^2 + \tr(\doubleC) < \oo.$$
+\begin{tw}[Centralne Twierdzenie Graniczne]\label{tw:ctg}
+Jeśli $X_i$ są niezależnymi zmiennymi losowymi pochodzącymi z tej samej populacji o wartości oczekiwanej $\mu$ oraz dodatniej, skończonej wariancji $\sigma^2$, to ciąg zmiennych losowych
+$$
+\sqrt{n}\frac{\bar{X} - \mu}{\sigma}
+$$
+jest zbieżny według rozkładu do standardowego rozkładu normalnego $N(0,1)$, gdy $n\to\oo$.
+\end{tw}
+Korzystając z tw. \ref{tw:ctg} (Centralnego Twierdzenia Granicznego) dla zmiennych losowych przyjmujących wartości w przestrzeni Hilberta $L^2[0,2]$ z miarą probabilistyczną, zachodzi zbieżność
+\[
+\sqrt{n}(\bar{X}(t) -m(t)) \xto{d} z(t),
+\]
+gdzie $z$ jest procesem gaussowskim o wartości oczekiwanej 0 i funkcji kowariancji $\doubleC(s,t)$.
+Przy założeniu hipotezy zerowej, z {twierdzenia o odwzorowaniach ciągłych} (odwzorowania ciągłe zachowują granice):
+\begin{equation}\label{eqn:zb.as.cn}
+\scriptC_n = n \int_0^1 (\bar{X}(t) - \bar{X}(t+1))^2\,dt \xto{d} \int_0^1 (z(t)-z(1+t))^2\,dt
+\end{equation}
+Oznaczając $\xi(t) = z(t)-z(1+t)$ można zaobserwować, że również jest to proces gaussowski o wartości oczekiwanej 0. Funkcja kowariancji tego procesu:
+\begin{align*}
+\doubleK(s,t)=&\Cov(\xi(s),\xi(t)\\
+=&\doubleE\nk{\nz{\xi(s)-\doubleE(\xi(s)}\nz{\xi(t)-\doubleE(\xi(t))}}\\
+=&\doubleE\nk{\nz{z(s)-z(1+s)-\doubleE(z(s)-z(1+s))}\nz{z(t)-z(1+t)-\doubleE(z(t)-z(1+t))}}\\
+=&\doubleE[
+  \nz{
+    z(s)-\doubleE\nk{z(s)}-\nz{
+      z(1+s)-\doubleE\nk{z(1+s)}
+    }}\\
+  &\cdot\nz{
+    z(t)-\doubleE\nk{z(t)}-\nz{
+      z(1+t)-\doubleE\nk{z(1+t)}
+    }}
+  ]\\
+=&\doubleE\nk{\nz{z(s)-\doubleE\nk{z(s)}}\nz{z(t)-\doubleE\nk{z(t)}}}\\
+&-\doubleE\nk{\nz{z(s)-\doubleE\nk{z(s)}}\nz{z(1+t)-\doubleE\nk{z(1+t)}}}\\
+&-\doubleE\nk{\nz{z(1+s)-\doubleE(z(1+s))}\nz{z(t)-\doubleE\nk{z(t)}}}\\
+&+\doubleE\nk{\nz{z(1+s)-\doubleE(z(1+s))}\nz{z(1+t)-\doubleE\nk{z(1+t)}}}\\
+=&\doubleC(s,t) - \doubleC(s,t+1) - \doubleC(s+1,t) + \doubleC(s+1,t+1).
+\end{align*}
+jest funkcją z przestrzeni Hilberta $L^2[0,1]$.
 
+Przy założeniach \textbf{A1} oraz \textbf{A3} $\tr(\doubleK)$ jest skończony, na podstawie formuły
+$$
+\doubleC(s,t) \le \sqrt{\doubleC(s,s)\doubleC(t,t)} \le \max_{t\in[0,2]} \doubleC(t,t) <\oo
+$$
+Na mocy tw. 4.2 w \cite{Zhang} $\norm{\xi}^2$ ma ten sam rozkład co $\scriptC^*$. Jako że $\scriptC_n\xto{d}\norm{\xi}^2$ przy $n\to \oo$, otrzymuje się ostatecznie tezę.
 \end{proof}
+
+Wartości $\lambda_i$, będące wartościami własnymi funkcji $\doubleK(s,t)$, mogą być wyestymowane, korzystając z naturalnego estymatora, jakim jest
+\begin{equation}\label{eqn:kkestimator}
+\hat{\doubleK}(s,t) = \hat{\doubleC}(s,t) - \hat{\doubleC}(s, t+1) - \hat{\doubleC}(s-1, t) + \hat{\doubleC}(s+1, t+1), \quad s,t\in[0,1]
+\end{equation}
+gdzie 
+\begin{equation}
+\label{kow_est}
+\hat{\doubleC}(s,t) = \frac{1}{n-1}\sum_{i=1}^n (X_i(s) - \bar{X}(s))(X_i(t) - \bar{X}(t)), \quad s,t\in [0,2]
+\end{equation}
+jest nieobciążonym estymatorem funkcji kowariancji $\doubleC(s,t)$ \cite{Zhang}.
+
+\begin{lm}
+Przyjmując założenia Twierdzenia \ref{tw:asympt} oraz założenia A1-A4 zachodzi jednostajna zbieżność według prawdopodobieństwa $$\hat{\doubleK}(s,t) \xto{P} \doubleK(s,t)$$ na $[0,1]^2$.
+\end{lm}
+\begin{proof}
+Na podstawie wykorzystywanych założeń zachodzi $\hat{\doubleC}(s,t)\xto{P} \doubleC(s,t)$ jednostajnie na $[0,2]^2$ (patrz Twierdzenie 4.17 w \cite{Zhang}). Korzystając z definicji estymatora podanej w \eqref{eqn:kkestimator} oraz z {twierdzenia o odwzorowaniu ciągłym}, otrzymuje się tezę.
+\end{proof}
+
+Równanie \eqref{eqn:zb.as.cn} pozwala na skonstruowanie prostego **algorytmu Monte Carlo** w celu oszacowania końcowej $p$-wartości \cite{MCC}. W tym celu dokonuje się dyskretyzacji danych oraz oszacowania na ich podstawie funkcji kowariancji $\doubleC$, bazując na estymatorze $\hat{\doubleC}$ danym wzorem \eqref{kow_est}. Następnie symulowanych jest $B$ trajektorii na podstawie procesu gaussowskiego ($z(t)$ w Równaniu \eqref{eqn:zb.as.cn}) o macierzy kowariancji $\hat{\doubleC}$. Na podstawie owych trajektorii oblicza się wartość ich statystyk testowych $\tilde{\scriptC_n^i}=\int_0^1 (z_i(t)-z_i(1+t))^2\,dt$, $i=1,2,\dots,B$ oraz końcową $p$-wartość ze wzoru
+\begin{equation}\label{eqn:pwartosc-testA}
+\frac{1}{B}\sum_{i=i}^B I(\scriptC_n \le \tilde{\scriptC_n^i})
+\end{equation}
 
 ## Testy bootstrapowe i permutacyjne
 
-Założenie addytywności przedstawione w równaniu \ref{eqn:addytywnosc} jest niewłaściwe dla wielu różnych funkcji, w szczególności gęstości -- muszą one spełniać konkretne warunki \AAA{[definicja gęstości?]}. W związku z tym w \cite{MCC} przedstawia się dwa podejścia nieparametryczne, niewymagające wyżej wspomnianego założenia o addytywności.
+Założenie addytywności przedstawione w równaniu \eqref{eqn:addytywnosc} nie jest spełnione dla wielu różnych funkcji, w szczególności funkcji gęstości -- muszą one spełniać konkretne warunki (m.in. $f\ge0$ oraz $\int_\doubleR f = 1$). W związku z tym w pracy \cite{MCC} przedstawia się dwa podejścia nieparametryczne, niewymagające wyżej wspomnianego założenia o addytywności.
 
 Przy prawdziwości hipotezy zerowej spełniona jest równość
-\begin{equation}
-\label{eqn:c_h0}
+\begin{equation}\label{eqn:c_h0}
 \scriptC_n = n\int_0^1 (\bar{X}(t) - m(t) + m(1+t) - \bar{X}(1+t))^2 dt.
 \end{equation}
-Do powyższej statystyki można wykorzystać **metodę bootstrapową** w oparciu o następujące kroki:
+W celu przybliżenia rozkładu prawdopodobieństwa powyższej statystyki można wykorzystać **metodę bootstrapową**. 
 
-1. Obliczyć $\scriptC_n$ na podstawie ustalonego podziału $\tau$ zbioru $[0,1]$.
-2. Wybrać $B$ niezależnych prób bootstrapowych \AAA{nie skończyłem}
-3. Wykorzystując \AAA{coś}, obliczyć wartości
-4. Rozkład $\scriptC_n$ szacuje się na podstawie...
+\begin{defi}
+\textbf{Próbą bootstrapową} nazywa się próbę $n$-elementową pobraną z $n$-elementowej próby w procesie $n$-krotnego losowania pojedynczych obserwacji ze zwracaniem.
+\end{defi}
 
-\begin{tw}
-\AAA{zbieżność do tego czegoś}
-\end{tw}
-\begin{proof}
+Metoda ta przebiega w następujących krokach:
 
-\end{proof}
+1. Obliczyć wartość statystyki $\scriptC_n$ na podstawie danych oryginalnych. Niech $\scriptC_0$ oznacza tę wartość.
+2. Wybrać $B$ niezależnych prób bootstrapowych $\mathbf{X}^*_i, i = 1,\ldots,B$. Każda z nich składa się z $n$ funkcji:
+\[
+\mathbf{X}^*_b = \set{X_1^{*,b}(t),\ldots, X_n^{*,b}(t)}, \quad t\in[0,2], b = 1,\ldots,B
+\]
+3. Dla każdej próby bootstrapowej wybranej w kroku 2. obliczyć wartości statystyki testowej $\scriptC_n$. Niech $\scriptC_1,\scriptC_2,\dots,\scriptC_B$ oznaczają otrzymane wartości.
+4. Obliczyć $p$-wartość według wzoru: $$\frac{1}{B}\sum_{i=1}^BI(\scriptC_i>\scriptC_0).$$
+```{=latex}
+% różnice względem oznaczeń w MCC:
+% MCC         | ja
+% -------------------------------
+% Cn          | C0
+% X^*_b       | X^*_b -- tak samo
+% C^{*,b}_n   | C_b
+```
+
+Jeżeli $\scriptC^*$ jest statystyką testową obliczoną na podstawie powyższego algorytmu, to
+\begin{equation}\label{eqn:bootstrapstat}
+\scriptC^*_n = n\int_0^1 \nz{\bar{X^*}(t)- \bar{X}(t) + \bar{X}(t+1) - \bar{X^*}(t+1)}^2 \,dt \xto{d} \int_0^1 \nz{z^*(t) - z^*(t+1)}^2 \,dt
+\end{equation}
+gdzie $z^*(t) - z^*(t+1)$ jest procesem gaussowskim o wartości oczekiwanej równej 0 i&nbsp;funkcji kowariancji $$\doubleK^*(s,t) = \doubleS(s,t) - \doubleS(s, t+1) - \doubleS(s+1,t) + \doubleS(s+1,t+1)  $$
+gdzie $\doubleS(s,t), s,t\in[0,2]$ jest funkcją kowariancji z próby, tj. funkcją kowariancji $\bar{X}$.
+W&nbsp;pracy \cite{MCC} podana jest intuicja dowodu powyższej tezy, jednak dokładny dowód wymaga głębszej analizy.
+
+Wyżej przedstawiony algorytm korzysta z własności estymatorów i można go uogólnić w&nbsp;celu oszacowania rozkładu dowolnej statystyki. Najbardziej powszechną do tego celu metodą jest **test permutacyjny**, który zakłada, że rodzaj zależności dla każdej pary danych jest taki sam, np. liniowy. Założenie to zwykle nie działa dla większej liczby prób \cite{MCC}.
+
+Przy zastosowaniu techniki permutacyjnej do prowadzonych rozważań otrzymuje się następujący algorytm, będący nieznaczną modyfikacją algorytmu bootstrapowego:
+
+1. Obliczyć wartość statystyki $\scriptC_n$ na podstawie danych oryginalnych. Niech $\scriptC_0$ oznacza tę wartość.
+2. Wybrać $B$ niezależnych prób *permutacyjnych* $\mathbf{X}^*_i, i = 1,\ldots,B$. Każda z nich składa się z $n$ funkcji:
+\[
+\mathbf{X}^*_b = \set{X_1^{*,b}(t),\ldots, X_n^{*,b}(t)}, \quad t\in[0,2], b = 1,\ldots,B,
+\]
+gdzie z prawdopodobieństwem równym $\frac{1}{2}$ dla $i=1,\ldots,n$:
+\[
+X_i^{*,b}(t) = X_i(t) \qquad\lor\qquad
+X_i^{*,b}(t) = X_i(t + (-1)^{I_{[1,2]}(t)}).
+\]
+3. Dla każdej próby permutacyjnej wybranej w kroku 2. obliczyć wartości statystyki testowej $\scriptC_n$. Niech $\scriptC_1,\scriptC_2,\dots,\scriptC_B$ oznaczają otrzymane wartości.
+4. Obliczyć $p$-wartość według wzoru: $$\frac{1}{B}\sum_{i=1}^BI(\scriptC_i>\scriptC_0).$$
 
 ## Test oparty o przybliżenie Boxa
 
-W \cite{Smaga} zwrócono uwagę na problem wyżej opisanych metod, jakim jest ich czasochłonność. W celu znalezienia szybszego spodobu przybliżenia rozkładu $\scriptC_n$ wykorzystano tam przybliżenie Boxa przy założeniu hipotezy zerowej.
+W \cite{Smaga} zwrócono uwagę na problem wyżej opisanych metod, jakim jest ich czasochłonność. W celu znalezienia szybszego sposobu przybliżenia rozkładu statystyki $\scriptC_n$, w tej pracy wykorzystano przybliżenie Boxa przy założeniu hipotezy zerowej.
 
-\AAA{czy tu ma być cały proces badawczy z \cite{Smaga} przepisany?}
+Wykorzystane zostaną założenia i wyniki Twierdzenia \ref{tw:asympt}. Rozkład statystyki $\scriptC_n$ jest znany, z wyjątkiem wartości własnych $\lambda_i, i\in\doubleN$ funkcji kowariancji $\doubleK(s,t)$. Te wartości własne można wyestymować, korzystając z estymatora \eqref{eqn:kkestimator}.
+
+Do oszacowania rozkładu statystyki $\scriptC_n$ przy założeniu hipotezy zerowej wykorzystane teraz zostanie **przybliżenie Boxa**. Metoda ta jest również znana jako *przybliżenie dwóch kumulant* \cite{Zhang}. Do oszacowań wykorzystywane są w niej *kumulanty*, często stosowane w&nbsp;analizie danych funkcjonalnych \cite{Smaga}.
+\begin{defi}
+Niech $X$ będzie zmienną losową, a $\psi_X(t)$ jej funkcją charakterystyczną. Jeżeli
+$$
+\log(\psi_X(t)) = \sum_{k=1}^\oo \kappa_k(X) \frac{it^k}{k!}
+$$
+to wielkości $\kappa_k(X)$ nazywane są \textbf{kumulantami} zmiennej losowej $X$.
+\end{defi}
+W szczególności pierwszymi 4 kumulantami są
+\begin{align*}
+\kappa_1(X) &= \doubleE(X), &\quad
+\kappa_2(X) &= \Var(X),\\
+\kappa_3(X) &= \doubleE(X-\doubleE(X))^3, &\quad
+\kappa_4(X) &= \doubleE(X-\doubleE(X))^4 - 3\Var^2(X).
+\end{align*}
+
+Główną ideą tejże metody jest oszacowanie rozkładu $\scriptC^*_0 \coloneqq \sum_{k\in\doubleN}\lambda_kA_k$ za pomocą rozkładu zmiennej losowej postaci
+\[ \beta \chi^2(d), \]
+gdzie parametry $\beta, d$ obliczane na podstawie przyrównania pierwszych dwóch kumulant zmiennych losowych $\scriptC_0^*$ oraz $\beta \chi^2(d)$. Wykorzystując obliczenia wykonane w pracy \cite{Zhang}, otrzymuje się
+\begin{equation}\label{eqn:betad}
+\beta = \frac{\tr(\doubleK^{\otimes 2})}{\tr(\doubleK)}, \quad
+d = \frac{\tr^2(\doubleK)}{\tr(\doubleK^{\otimes 2})},
+\end{equation}
+gdzie
+\[
+\tr(\doubleK) = \int_0^1 \doubleK(t,t)\,dt, \quad
+\doubleK^{\otimes 2} \coloneqq \int_0^1 \doubleK(s,u)\doubleK(u,t)\,du.
+\]
+
+Naturalnymi estymatorami parametrów ze wzoru \eqref{eqn:betad} są te uzyskane poprzez podstawienie estymatora funkcji kowariancji $\hat{\doubleK}(s,t)$ zdefiniowanego wzorem \eqref{eqn:kkestimator}, co prowadzi do wzorów
+
+\begin{equation}\label{eqn:betadestimator}
+\hat\beta = \frac{\tr(\hat\doubleK^{\otimes 2})}{\tr(\hat\doubleK)}, \quad
+\hat{d} = \frac{\tr^2(\hat\doubleK)}{\tr(\hat\doubleK^{\otimes 2})}.
+\end{equation}
+
+Przy założeniu hipotezy zerowej otrzymuje się wówczas przybliżenie $\scriptC_n \sim \hat\beta \chi^2(\hat d)$, co prowadzi do testu, w którym $p$-wartość oblicza się wzorem
+$$ \doubleP\nz{\chi^2(\hat d) > \frac{\scriptC_n}{\hat\beta}}.$$

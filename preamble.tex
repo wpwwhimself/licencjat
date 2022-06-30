@@ -4,16 +4,29 @@
 \usepackage{color}
 \usepackage{polski}
 \usepackage{float}
+%\usepackage{amssymb, amsfonts, amsmath, bbold, stmaryrd} %pisanie matematyczne
+  \makeatletter
+	\renewcommand{\slimits@}{\limits} %niech inline limesy będą pod, nie obok
+	\renewcommand{\nmlimits@}{\limits}
+	\makeatother
+	\renewcommand{\le}{\leqslant} %źle renderuje nierówności
+	\renewcommand{\ge}{\geqslant}
+\usepackage{mathtools} %\coloneqq
 
 %szybkie pisanie latex
 \newcommand{\doubleC}{\mathbb{C}}
 \newcommand{\doubleE}{\mathbb{E}}
+\newcommand{\doubleK}{\mathbb{K}}
 \newcommand{\doubleN}{\mathbb{N}}
 \newcommand{\doubleP}{\mathbb{P}}
 \newcommand{\doubleQ}{\mathbb{Q}}
 \newcommand{\doubleR}{\mathbb{R}}
+\newcommand{\doubleS}{\mathbb{S}}
 \newcommand{\doubleZ}{\mathbb{Z}}
 \newcommand{\scriptC}{\mathcal{C}}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator{\Cov}{Cov}
 % % nawiasy
 \newcommand{\nz}[1]{\left( #1 \right)} %nawias zwykły
 \newcommand{\nk}[1]{\left[ #1 \right]} %nawias kanciaty
@@ -22,8 +35,6 @@
 \newcommand{\norm}[1]{\left\| #1 \right\|}
 \newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
 \newcommand{\ceil}[1]{\left\lceil #1 \right\rceil}
-\newcommand{\ang}[1]{\left\langle #1 \right\rangle}
-\newcommand{\crn}[1]{\left\ulcorner #1 \right\urcorner}
 % % ładne kwantyfikatory
 %\newcommand{\A}[1]{\:\underset{#1}{\forall}\:}
 %\newcommand{\E}[1]{\:\underset{#1}{\exists}\:}
@@ -70,6 +81,15 @@
 \theoremstyle{twierdzenie}
 \newtheorem{tw}{Twierdzenie}[chapter]
 \surroundwithmdframed[roundcorner=5pt,skipabove=3mm,skipbelow=3mm]{tw}
+
+\newtheoremstyle{lemat}%
+	{3pt}{3pt}{\itshape}{}
+	{\bfseries}% Theorem head font
+	{.}% Punctuation after theorem head
+ 	{.5em}{}
+\theoremstyle{lemat}
+\newtheorem{lm}{Lemat}[chapter]
+\surroundwithmdframed[roundcorner=5pt,skipabove=3mm,skipbelow=3mm]{lm}
 
 \makeatletter % dowód
 \renewenvironment{proof}[1][\proofname]{\par

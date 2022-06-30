@@ -1,0 +1,224 @@
+# Badania symulacyjne
+
+```{=latex}
+\fancyhead[LO]{\textbf{\small{Badania symulacyjne}}}
+\renewcommand{\headrulewidth}{0.5pt}
+```
+
+```{r zaczynam erować, include=F}
+library(ggplot2); library(dplyr); library(latex2exp)
+library(knitr); library(kableExtra)
+opts_chunk$set(fig.pos = "H", warning = F, echo = F, message = F)
+```
+
+W celu porównania rozmiarów i mocy testów opisanych w niniejszej pracy, przeprowadza się badania symulacyjne. Wszystkie poszczególne metody będą oznaczone w następujący sposób:
+
+- **test A** -- test asymptotyczny,
+- **test B** -- test bootstrapowy,
+- **test P** -- test permutacyjny,
+- **test BT** -- test oparty o przybliżenie Boxa.
+
+Wszystkie symulacje zostały przeprowadzone przy pomocy środowiska R \cite{Rcoreteam}.
+
+## Opis eksperymentów
+
+```{r parametry i funkcje m}
+n = c(25, 35, 50); alpha = 0.05
+I = c(26, 101, 251); by = 1000/(I-1) #na potrzeby podziałek
+rho <- c(0, 0.25, 0.5); xi <- c('M0to3' = 0.05, 'M4to7' = 0.5)
+m_01 <- function(t){ sqrt(6*t/pi)*exp(-6*t)}
+m_11 <- function(t){ sqrt(13*t/pi/2)*exp(-13*t/2)}
+m_21 <- function(t){ sqrt(11*t/pi/2)*exp(-11*t/2)}
+m_31 <- function(t){ sqrt(5)*t^(2/3)*exp(-7*t)}
+m_02 <- function(t){ sin(2*pi*t^2)^5 }
+m_12 <- function(t){ sin(2*pi*t^2)^3 }
+m_22 <- function(t){ sin(2*pi*t^2)^7 }
+m_32 <- function(t){ sin(2*pi*t^(9/5))^3 }
+```
+
+Zgodnie z eksperymentami przeprowadzonymi w \cite{MCC} oraz \cite{Smaga} dla testów A, B, P i BT, generuje się realizacje procesów losowych $X_i(t)$ postaci
+\begin{equation}\label{eqn:sim_model}
+X_i(t) = \begin{cases}
+m_1(t) + \epsilon_{i1}(t), & t\in[0,1] \\
+m_2(t) + \epsilon_{i2}(t), & t\in[1,2]
+\end{cases}, \quad i\in 1,2,\dots,n,
+\end{equation}
+dla funkcji $m_j(t)$ oraz $\epsilon_{ij}(t)$ opisanych poniżej. Rozpatrywany będzie rozmiar próby $n = `r paste(n, collapse = ', ')`$.
+
+Rozpatrywane będą następujące funkcje:
+
+\begin{align*}
+m_{0,1}(t) &= \sqrt{\frac{6t}{\pi}}\exp(-6t)I_{[0,1]}(t) &\quad
+m_{0,2}(t) &= (\sin(2\pi t^2))^5I_{[0,1]}(t) \\
+m_{1,1}(t) &= \sqrt{\frac{13t}{2\pi}}\exp\left(-\frac{13t}{2}\right)I_{[0,1]}(t) &\quad
+m_{1,2}(t) &= (\sin(2\pi t^2))^3I_{[0,1]}(t) \\
+m_{2,1}(t) &= \sqrt{\frac{11t}{2\pi}}\exp\left(-\frac{11t}{2}\right)I_{[0,1]}(t) &\quad
+m_{2,2}(t) &= (\sin(2\pi t^2))^7I_{[0,1]}(t) \\
+m_{3,1}(t) &= \sqrt{5}t^{\frac{2}{3}}\exp(-7t)I_{[0,1]}(t) &\quad
+m_{3,2}(t) &= (\sin(2\pi t^{\frac{9}{5}}))^3I_{[0,1]}(t)
+\end{align*}
+
+Wykresy powyższych funkcji są przedstawione na Rysunku \@ref(fig:wykresy).
+\AAA{Biorąc pod uwagę, że ustawiłem utrzymywanie rysunków w tym samym miejscu, gdzie je wpisuję (nie przeskoczą mi na osobną stronę), to zdanie wydaje mi się niepotrzebne, ale pewnie nie zaszkodzi, żeby było.} \textcolor{blue}{takie zdania zawsze powinny być w tekście zgodnie z regułą, że każdy obrazek czy tabela powinna być wspomniana w tekście, nawet krótko, to samo dotyczy literatury - każda pozycja w literaturze powinna być wspomniana w teście i na odwrót}
+
+```{r wykresy, fig.cap="Wykresy funkcji $m_{i,j}(t), t\\in[0,1]$, wykorzystanych do przeprowadzenia symulacji", fig.height=3}
+#wykresy chikwadratowe
+ggplot(data.frame(x = 0:1), aes(x)) +
+  theme_minimal() + theme(legend.position = "bottom") +
+  geom_function(fun = m_01, aes(color = 'a')) +
+  geom_function(fun = m_11, aes(color = 'b')) +
+  geom_function(fun = m_21, aes(color = 'c')) +
+  geom_function(fun = m_31, aes(color = 'd')) +
+  xlab("t") + ylab("") + 
+  scale_color_manual(name = "",
+                     values = c('a'='black', 'b'='red', 'c'='green', 'd'='blue'),
+                     labels = c(TeX("$m_{0,1}(t)$"),
+                                TeX("$m_{1,1}(t)$"),
+                                TeX("$m_{2,1}(t)$"),
+                                TeX("$m_{3,1}(t)$"))) -> plot1
+#wykresy sinusowe
+ggplot(data.frame(x = 0:1), aes(x)) +
+  theme_minimal() + theme(legend.position = "bottom") +
+  geom_function(fun = m_02, aes(color = 'a')) +
+  geom_function(fun = m_12, aes(color = 'b')) +
+  geom_function(fun = m_22, aes(color = 'c')) +
+  geom_function(fun = m_32, aes(color = 'd')) +
+  xlab("t") + ylab("") + 
+  scale_color_manual(name = "",
+                     values = c('a'='black', 'b'='red', 'c'='green', 'd'='blue'),
+                     labels = c(TeX("$m_{0,2}(t)$"),
+                                TeX("$m_{1,2}(t)$"),
+                                TeX("$m_{2,2}(t)$"),
+                                TeX("$m_{3,2}(t)$"))) -> plot2
+#multiwykres
+gridExtra::grid.arrange(plot1, plot2, nrow = 1)
+```
+
+Skonstruowanych zostanie 8 różnych modeli spełniających równanie modelu \eqref{eqn:sim_model}:
+
+- dla **modeli M0-M3** przyjmuje się $m_1 = m_{0,1}, \quad m_2 = m_{j,1}, j = 0,1,2,3$
+- dla **modeli M4-M7** przyjmuje się $m_1 = m_{0,2}, \quad m_2 = m_{j,2}, j = 0,1,2,3$
+
+Warto zauważyć, że dla modeli M0 oraz M4 hipoteza zerowa jest prawdziwa.
+
+Występujące w równaniu \eqref{eqn:sim_model} procesy $\epsilon_{i1}, \epsilon_{i2}$ konstruuje się na bazie procesów gaussowskich. Rozpatrywane będą trzy rodzaje procesów losowych, dalej nazywanych *błędami*:
+
+- **normalny**: $\epsilon_{i1}(t) := \xi B_{i1}(t), \quad \epsilon_{i2}(t) := \rho\epsilon_{i1}(t) + \xi\sqrt{1-\rho^2}B_{i2}(t)$ ($\rho = `r paste(rho, collapse = ', ')`$),
+- **lognormalny**: $\epsilon_{ij}(t) := \exp(\epsilon_{ij}(t)), j=1,2$,
+- **mieszany**: $\epsilon_{i1}(t) := \epsilon_{i1}(t), \quad \epsilon_{i2}(t) := \exp(\epsilon_{i2}(t))$,
+
+gdzie $B_{ij}$ są standardowymi mostami Browna, a $\xi = \begin{cases}0.05, & \text{modele }M0-M3\\ 0.5, & \text{modele }M4-M7\end{cases}$.
+
+\begin{defi}
+\textbf{Mostem Browna} nazywa się proces gaussowski $X(t), t\in [0,1]$ o~ciągłych trajektoriach takich, że
+$$
+\doubleE X = 0 \quad\land\quad
+\Cov(X(s), X(t)) = s(1-t), \quad s\le t
+$$
+\end{defi}
+
+```{r funkcje epsilon}
+bridge <- function(){
+  time <- seq(0, 1, by = 0.001)
+  #ruch Browna -- odstęp do 1/1001, więć sd to pierwiastek z tego
+  X <- cumsum(rnorm(1001, mean = 0, sd = sqrt(1 / 1001))) 
+  #most Browna z ruchu Browna
+  Z <- X - time * X[1001]
+}
+
+# Czy dla różnych dyskretyzacji są wykorzystywane te same mosty browna?
+# W tej chwili bridge() uruchamia się raz na symulację błędów
+# (przy wywołaniu eps_?), które też są uruchamiane
+# po razie na każdy model; czy to poprawne podejście?
+eps_1 <- function(bridge1, xi){ 
+  xi*bridge1
+}
+eps_2 <- function(bridge2, eps_1, xi, rho){ 
+  rho*eps_1 + xi*sqrt(1-rho^2)*bridge2
+}
+#dla lognormalnych expuję ręcznie
+```
+
+Jako że obliczenie wartości danych funkcji jest możliwe jedynie w dyskretnej liczbie punktów, na potrzeby symulacji wartości procesów $X_i(t), X_i(t+1)$ wygenerowane zostały dla $I$ punktów ($I=`r paste(I, collapse = ', ')`$): $t_r\in[0,1], r\in 1,2,\dots,I$, dzielących odcinek $[0,1]$ na $I$ równych fragmentów.
+
+Dokonano obliczeń **rozmiarów** i **mocy** empirycznych rozważanych testów na poziomie istotności $\alpha = `r alpha*100`\%$, na podstawie 1001 replikacji. Wyniki przedstawiono w tabelach zaprezentowanych w dalszej części pracy.
+
+\begin{defi}
+Niech $\mathbf{X}$ będzie próbą, a $B$ obszarem krytycznym testu statystycznego.\\
+\textbf{Rozmiarem} testu statystycznego jest prawdopodobieństwo nieprawidłowego odrzucenia hipotezy zerowej, tj. błędu I rodzaju:
+\[
+\doubleP_0(\mathbf{X}\in B).
+\]
+\textbf{Mocą} testu statystycznego jest prawdopodobieństwo poprawnego odrzucenia hipotezy zerowej, tj. zdarzenia przeciwnego do błędu II rodzaju:
+\[
+\doubleP_1(\mathbf{X}\in B).
+\]
+\end{defi}
+
+```{r modele}
+time <- seq(0, 1, by = 0.001)
+outputs <- list()
+#### funkcja symulująca dane ####
+addToOutputs <- function(modelId, .m1, .m2, .xi){
+  for(errortype in c("N", "L", "M")){ #pętla typu błędu
+    for(.rho in rho){ #pętla rho
+      for(.n in n){ #pętla wielkości próby
+        data <- matrix(rep(0, .n * 2002), nrow = .n)
+        for(i in 1:.n){ #pętla obserwacji
+          e1 <- eps_1(bridge(), .xi)
+          e2 <- eps_2(bridge(), e1, .xi, .rho)
+          if(errortype == "L"){ e1 <- exp(e1) }
+          if(errortype %in% c("L", "M")){ e2 <- exp(e2) }
+          data[i, 1:1001] <- .m1 + e1
+          data[i, 1002:2002] <- .m2 + e2
+          for(j in 1:3){ #pętla dokładności (I)
+            outputs[[paste(modelId,
+                           "_n", .n,
+                           "_rho", .rho,
+                           "_e", errortype,
+                           "_I", I[j],
+                           sep = "")]] <<- data[, c(seq(1, 1001, by = by[j]),
+                                                     seq(1002, 2002, by = by[j]))]
+          }
+        }
+      }  
+    }
+  }
+}
+
+addToOutputs("M0", m_01(time), m_01(time), xi["M0to3"])
+addToOutputs("M1", m_01(time), m_11(time), xi["M0to3"])
+addToOutputs("M2", m_01(time), m_21(time), xi["M0to3"])
+addToOutputs("M3", m_01(time), m_31(time), xi["M0to3"])
+addToOutputs("M4", m_02(time), m_02(time), xi["M4to7"])
+addToOutputs("M5", m_02(time), m_12(time), xi["M4to7"])
+addToOutputs("M6", m_02(time), m_22(time), xi["M4to7"])
+addToOutputs("M7", m_02(time), m_32(time), xi["M4to7"])
+# po wywołaniu tych funkcji outputs ma 648 (8*3*3*3*3) pozycji,
+# obejmujących symulacje dla wszystkich parametrów
+```
+
+```{r symulacjaM2, fig.cap="Symulacja procesów modelu M6 z parametrami: $n=25, \\rho=0, I=251$, błąd normalny"}
+outputs$M6_n25_rho0_eN_I251 %>% t() %>% as.data.frame() %>%
+  mutate(t = 1:(I[3]*2)) %>% 
+  tidyr::pivot_longer(!t, names_to = "replikacja") %>%
+  ggplot(aes(t, value, color = replikacja)) + theme_minimal() +
+  geom_line() +
+  theme(legend.position = "none") + ylab("X(t)")
+```
+
+## Kontrola błędu pierwszego rodzaju
+
+\AAA{Tu prezentowane będą empiryczne rozmiary testu, jak już będę umiał napisać funkcje}
+\AAA{Jak w ogóle obliczyć rozmiar/moc testu? Potrzebuję wartości krytycznych}
+```{r rozmiary i moce, echo = T}
+#rozmiar testu: X in B przy H0
+# B = {x: T(x) >= k}
+# moim T jest Cn, więć muszę wyznaczyć k -- wartość krytyczną
+# P0(T >= k) = F0(k) = alfa \wtw k = kwantyl rzędu alfa rozkładu T
+# nie wiem...
+```
+
+## Moc testu
+
+\AAA{Tu prezentowane będą empiryczne moce testu, jak już będę umiał napisać funkcje}
